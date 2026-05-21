@@ -83,7 +83,7 @@ Error generating stack: `+e.message+`
           font-black
           text-[#6E31E8]
           text-center
-        `,children:[e,`님`,(0,f.jsx)(`br`,{}),`환영해요!`]}),(0,f.jsx)(`p`,{className:`
+        `,children:[e||`이용자`,`님`,(0,f.jsx)(`br`,{}),`환영해요!`]}),(0,f.jsx)(`p`,{className:`
           mt-5
 
           text-[#A57AFF]
