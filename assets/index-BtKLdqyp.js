@@ -32,7 +32,7 @@ Error generating stack: `+e.message+`
           w-44
           drop-shadow-xl
           `})}),(0,f.jsxs)(`div`,{className:`mt-6 text-center`,children:[(0,f.jsxs)(`h1`,{className:`
-          text-[36px]
+          text-[30px]
           leading-[1.15]
           font-black
           text-[#6E31E8]
@@ -41,7 +41,7 @@ Error generating stack: `+e.message+`
           text-xl
           text-[#A57AFF]
           leading-relaxed
-          `,children:[`무디와 함께`,(0,f.jsx)(`br`,{}),`감정 지도를 완성해봐요!`]})]}),(0,f.jsxs)(`div`,{className:`mt-auto space-y-5`,children:[(0,f.jsx)(_,{icon:`📍`,title:`위치 권한`,desc:`주변 무드스팟을 추천해드려요`}),(0,f.jsx)(_,{icon:`🔔`,title:`알림 설정`,desc:`감정 리포트를 놓치지 마세요`})]}),(0,f.jsx)(`button`,{onClick:e,className:`
+          `,children:[`무디와 함께`,(0,f.jsx)(`br`,{}),`감정 지도를 완성해봐요!`]})]}),(0,f.jsxs)(`div`,{className:`mt-5 space-y-6`,children:[(0,f.jsx)(_,{icon:`📍`,title:`위치 권한`,desc:`주변 무드스팟을 추천해드려요`}),(0,f.jsx)(_,{icon:`🔔`,title:`알림 설정`,desc:`감정 리포트를 놓치지 마세요`})]}),(0,f.jsx)(`button`,{onClick:e,className:`
         mt-12
         h-16
         w-full
@@ -62,4 +62,36 @@ Error generating stack: `+e.message+`
         text-lg
         font-semibold
         shrink-0
-        `,children:`나중에 할래요`})]})}function y(){return(0,f.jsxs)(`section`,{className:`flex h-full flex-col items-center justify-center bg-[#f7f4ff]`,children:[(0,f.jsx)(`img`,{src:`./moodie.png`,className:`w-44`,alt:`moodie`}),(0,f.jsx)(`h1`,{className:`mt-8 text-5xl font-black text-[#6E31E8]`,children:`환영해요 ☁️`}),(0,f.jsx)(`p`,{className:`mt-4 text-[#A57AFF]`,children:`오늘 기분은 어떤가요?`})]})}function b(){let[e,t]=(0,l.useState)(-1),[n,r]=(0,l.useState)(`onboarding`),[i,a]=(0,l.useState)([]),o=g[e],s=e=>{i.includes(e)?a(i.filter(t=>t!==e)):a([...i,e])};return(0,f.jsx)(`main`,{className:`flex min-h-screen items-center justify-center bg-gradient-to-br from-[#f5edff] to-[#e9ddff] p-4`,children:(0,f.jsxs)(`div`,{className:`relative h-[844px] w-[390px] overflow-hidden rounded-[40px] border border-white bg-white/40 shadow-2xl backdrop-blur-2xl`,children:[n===`onboarding`&&(0,f.jsxs)(f.Fragment,{children:[(0,f.jsxs)(`div`,{className:`h-full overflow-y-auto p-6 pb-[180px]`,children:[(0,f.jsxs)(`div`,{className:`mb-10 flex items-center justify-between`,children:[(0,f.jsxs)(`div`,{className:`flex items-center gap-4`,children:[e>=0&&(0,f.jsx)(`button`,{onClick:()=>t(e-1),className:`flex h-10 w-10 items-center justify-center rounded-full bg-white shadow`,children:`←`}),(0,f.jsx)(`h1`,{className:`text-2xl font-black text-purple-700`,children:`MOODMAP`})]}),e===-1?(0,f.jsx)(`button`,{onClick:()=>{r(`home`)},className:`text-purple-400 font-medium`,children:`건너뛰기`}):(0,f.jsxs)(`p`,{className:`text-purple-400`,children:[e+1,`/`,g.length]})]}),e===-1&&(0,f.jsxs)(`div`,{className:`text-center`,children:[(0,f.jsx)(`img`,{src:`./moodie.png`,className:`mx-auto w-56`,alt:`Moodie`}),(0,f.jsxs)(`h2`,{className:`mt-8 text-4xl font-black text-purple-700`,children:[`나에게 딱 맞는`,(0,f.jsx)(`br`,{}),`공간을 찾아볼까요?`]})]}),e>=0&&e<g.length&&(0,f.jsxs)(f.Fragment,{children:[(0,f.jsx)(m,{step:o.step}),(0,f.jsx)(`h2`,{className:`mt-6 text-4xl font-black`,children:o.title}),(0,f.jsx)(`div`,{className:`mt-10 grid grid-cols-2 gap-4`,children:o.options.map(e=>(0,f.jsx)(p,{label:e,selected:i.includes(e),onClick:()=>s(e)},e))})]})]}),(0,f.jsx)(`div`,{className:`absolute bottom-8 left-6 right-6 z-50`,children:(0,f.jsx)(`button`,{onClick:()=>{e<g.length-1?t(e+1):r(`permission`)},className:`h-[68px] w-full rounded-full bg-gradient-to-r from-[#7B49FF] to-[#B381FF] font-bold text-white text-xl font-bold shadow-xl`,children:`다음`})})]}),n===`permission`&&(0,f.jsx)(v,{onFinish:()=>r(`home`)}),n===`home`&&(0,f.jsxs)(f.Fragment,{children:[(0,f.jsx)(y,{}),(0,f.jsx)(h,{})]})]})})}(0,u.createRoot)(document.getElementById(`root`)).render((0,f.jsx)(l.StrictMode,{children:(0,f.jsx)(b,{})}));
+        `,children:`나중에 할래요`})]})}function y({name:e}){return(0,f.jsxs)(`section`,{className:`
+        h-full
+
+        bg-[#f7f4ff]
+
+        flex
+        flex-col
+
+        items-center
+
+        justify-center
+
+        px-8`,children:[(0,f.jsx)(`img`,{src:`./moodie.png`,className:`
+          w-44
+        `}),(0,f.jsxs)(`h1`,{className:`
+          mt-8
+          text-5xl
+          leading-[1.05]
+          font-black
+          text-[#6E31E8]
+          text-center
+        `,children:[e,`님`,(0,f.jsx)(`br`,{}),`환영해요!`]}),(0,f.jsx)(`p`,{className:`
+          mt-5
+
+          text-[#A57AFF]
+        `,children:`오늘 기분은 어떤가요?`})]})}function b(){let[e,t]=(0,l.useState)(-1),[n,r]=(0,l.useState)(`onboarding`),[i,a]=(0,l.useState)(``),[o,s]=(0,l.useState)([]),c=e=>{o.includes(e)?s(o.filter(t=>t!==e)):s([...o,e])};return(0,f.jsx)(`main`,{className:`flex min-h-screen items-center justify-center bg-gradient-to-br from-[#f5edff] to-[#e9ddff] p-4`,children:(0,f.jsxs)(`div`,{className:`relative h-[844px] w-[390px] overflow-hidden rounded-[40px] border border-white bg-white/40 shadow-2xl backdrop-blur-2xl`,children:[n===`onboarding`&&(0,f.jsxs)(f.Fragment,{children:[(0,f.jsxs)(`div`,{className:`h-full overflow-y-auto p-6 pb-[180px]`,children:[(0,f.jsxs)(`div`,{className:`mb-10 flex items-center justify-between`,children:[(0,f.jsxs)(`div`,{className:`flex items-center gap-4`,children:[e>=0&&(0,f.jsx)(`button`,{onClick:()=>t(e-1),className:`flex h-10 w-10 items-center justify-center rounded-full bg-white shadow`,children:`←`}),(0,f.jsx)(`h1`,{className:`text-2xl font-black text-purple-700`,children:`MOODMAP`})]}),e===-1?(0,f.jsx)(`button`,{onClick:()=>{r(`home`)},className:`text-purple-400 font-medium`,children:`건너뛰기`}):(0,f.jsxs)(`p`,{className:`text-purple-400`,children:[e+1,`/`,g.length]})]}),e===-1&&(0,f.jsxs)(`div`,{className:`text-center`,children:[(0,f.jsx)(`img`,{src:`./moodie.png`,className:`mx-auto w-56`,alt:`Moodie`}),(0,f.jsxs)(`h2`,{className:`mt-8 text-4xl font-black text-purple-700`,children:[`나에게 딱 맞는`,(0,f.jsx)(`br`,{}),`공간을 찾아볼까요?`]})]}),e===0&&(0,f.jsxs)(f.Fragment,{children:[(0,f.jsx)(m,{step:1}),(0,f.jsxs)(`h2`,{className:`text-4xl font-black mt-6 text-[#33215f]`,children:[`어떻게`,(0,f.jsx)(`br`,{}),`불러드릴까요?`]}),(0,f.jsx)(`p`,{className:`mt-4 text-purple-400`,children:`이름 또는 닉네임 입력`}),(0,f.jsx)(`input`,{value:i,onChange:e=>a(e.target.value),placeholder:`예: 무디`,className:`mt-10 w-full h-16 rounded-full px-8 text-xl outline-none bg-white shadow-sm`})]}),e>0&&e<=g.length&&(0,f.jsxs)(f.Fragment,{children:[(0,f.jsx)(m,{step:e+1}),(0,f.jsx)(`h2`,{className:`
+        text-4xl
+        font-black
+        mt-6
+      `,children:g[e-1].title}),(0,f.jsx)(`p`,{className:`
+        mt-3
+        text-purple-400
+      `,children:`복수 선택 가능`}),(0,f.jsx)(`div`,{className:`grid grid-cols-2 gap-4 mt-10`,children:g[e-1].options.map(e=>(0,f.jsx)(p,{label:e,selected:o.includes(e),onClick:()=>c(e)},e))})]})]}),(0,f.jsx)(`div`,{className:`absolute bottom-8 left-6 right-6 z-50`,children:(0,f.jsx)(`button`,{onClick:()=>{if(e===0&&!i.trim()){alert(`이름을 입력해주세요 ☁️`);return}e<g.length?t(e+1):r(`permission`)},className:`h-[68px] w-full rounded-full bg-gradient-to-r from-[#7B49FF] to-[#B381FF] font-bold text-white text-xl font-bold shadow-xl`,children:`다음`})})]}),n===`permission`&&(0,f.jsx)(v,{onFinish:()=>r(`home`)}),n===`home`&&(0,f.jsxs)(f.Fragment,{children:[(0,f.jsx)(y,{name:i}),(0,f.jsx)(h,{})]})]})})}(0,u.createRoot)(document.getElementById(`root`)).render((0,f.jsx)(l.StrictMode,{children:(0,f.jsx)(b,{})}));
