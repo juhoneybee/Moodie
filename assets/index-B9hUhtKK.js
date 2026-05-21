@@ -32,7 +32,7 @@ Error generating stack: `+e.message+`
           w-44
           drop-shadow-xl
           `})}),(0,f.jsxs)(`div`,{className:`mt-6 text-center`,children:[(0,f.jsxs)(`h1`,{className:`
-          text-[44px]
+          text-[36px]
           leading-[1.15]
           font-black
           text-[#6E31E8]
@@ -41,7 +41,7 @@ Error generating stack: `+e.message+`
           text-xl
           text-[#A57AFF]
           leading-relaxed
-          `,children:[`무디가 감정 지도를`,(0,f.jsx)(`br`,{}),`완성해줄 수 있게 도와주세요!`]})]}),(0,f.jsxs)(`div`,{className:`mt-auto space-y-5`,children:[(0,f.jsx)(_,{icon:`📍`,title:`위치 권한`,desc:`주변 무드스팟을 추천해드려요`}),(0,f.jsx)(_,{icon:`🔔`,title:`알림 설정`,desc:`감정 리포트를 놓치지 마세요`})]}),(0,f.jsx)(`button`,{onClick:e,className:`
+          `,children:[`무디와 함께`,(0,f.jsx)(`br`,{}),`감정 지도를 완성해봐요!`]})]}),(0,f.jsxs)(`div`,{className:`mt-auto space-y-5`,children:[(0,f.jsx)(_,{icon:`📍`,title:`위치 권한`,desc:`주변 무드스팟을 추천해드려요`}),(0,f.jsx)(_,{icon:`🔔`,title:`알림 설정`,desc:`감정 리포트를 놓치지 마세요`})]}),(0,f.jsx)(`button`,{onClick:e,className:`
         mt-12
         h-16
         w-full
