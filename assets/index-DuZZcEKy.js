@@ -32,7 +32,7 @@ Error generating stack: `+e.message+`
           w-44
           drop-shadow-xl
           `})}),(0,f.jsxs)(`div`,{className:`mt-6 text-center`,children:[(0,f.jsxs)(`h1`,{className:`
-          text-[30px]
+          text-[28px]
           leading-[1.15]
           font-black
           text-[#6E31E8]
