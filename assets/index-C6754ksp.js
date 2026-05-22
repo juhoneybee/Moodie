@@ -200,9 +200,7 @@ ${r===e?`border-[6px] border-purple-500 scale-105`:``}
   shadow-sm
 
   transition
-`,children:`← 이전 단계`}),(0,f.jsx)(`button`,{disabled:!u,onClick:()=>{u&&(a===0?(i(``),o(a+1)):fetch(`http://localhost:3000/recommend
-?mood=${t}
-&place=${r}`).then(e=>e.json()).then(e=>{console.log(`추천 결과`,e),s(e),c(`map`)}).catch(e=>{console.error(`추천 실패`,e)}))},className:`
+`,children:`← 이전 단계`}),(0,f.jsx)(`button`,{disabled:!u,onClick:()=>{if(u){if(a===0){o(a+1);return}fetch(`http://localhost:3000/recommend?mood=${t}&place=${r}`).then(e=>e.json()).then(e=>{console.log(`추천 결과`,e),s(e),c(`map`)}).catch(console.error)}},className:`
     w-full
 
     h-16
