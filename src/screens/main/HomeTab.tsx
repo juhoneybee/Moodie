@@ -88,7 +88,7 @@ function HomeTab({
                             setHomeStep(1)
                             return
                         }
-                        fetch(`http://localhost:3000/recommend?mood=${mood}&place=${place}`)
+                        fetch(`https://moodie-api.onrender.com/recommend?mood=${mood}&place=${place}`)
                             .then(r => r.json())
                             .then(data => {
                                 console.log("추천 결과", data)
