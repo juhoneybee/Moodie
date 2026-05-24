@@ -200,11 +200,11 @@ pb-32
 `,children:[(0,f.jsxs)(`div`,{className:`
 px-6
 pt-12
-`,children:[(0,f.jsx)(`h1`,{className:`
+`,children:[(0,f.jsxs)(`h1`,{className:`
 text-[42px]
 font-black
 text-[#6E31E8]
-`,children:e}),(0,f.jsx)(`p`,{className:`
+`,children:[e||`사용자`,`님`]}),(0,f.jsx)(`p`,{className:`
 mt-2
 pb-4
 text-purple-400
