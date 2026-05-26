@@ -9,6 +9,7 @@ export const homeQuestions = {
             { emoji: "😴", label: "피곤해요", color: "#66739B" },
             { emoji: "😕", label: "복잡해요", color: "#D8D4F5" },
             { emoji: "🥲", label: "우울해요", color: "#AEB3DD" },
+            { emoji: "😢", label: "슬퍼요", color: "#E0E0E0" },
             { emoji: "😤", label: "답답해요", color: "#C9A3FF" },
             { emoji: "😵", label: "멍해요", color: "#C5CBE9" },
             { emoji: "😡", label: "화나요", color: "#E0E0E0" },
@@ -18,14 +19,12 @@ export const homeQuestions = {
     place: {
         title: "어디로 가고 싶나요?",
         options: [
-            "식당",
-            "카페",
-            "술집",
-            "Bar",
-            "전시",
-            "공원 / 산책",
-            "쇼핑",
-            "기타"
+            { label: "식당", emoji: "🍽️" },
+            { label: "카페", emoji: "☕" },
+            { label: "술집", emoji: "🍷" },
+            { label: "Bar", emoji: "🍸" },
+            { label: "쇼핑", emoji: "🛍️" },
+            { label: "기타", emoji: "❓" }
         ]
     }
 }

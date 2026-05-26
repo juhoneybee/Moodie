@@ -4,6 +4,7 @@ import MapTab from "./main/MapTab"
 import ChatTab from "./main/ChatTab"
 import DiaryTab from "./main/DiaryTab"
 import SettingsTab from "./main/SettingsTab"
+import MonthlyReport from "./main/MonthlyReport"
 
 interface Props {
     name: string
@@ -47,17 +48,55 @@ function HomeScreen({
                             setHomeStep={setHomeStep}
                             setSpots={setSpots}
                         />
+                        
                     ) : (
-                        <div className="h-full flex flex-col items-center justify-center">
-                            <div className="w-32 h-32 rounded-full bg-gradient-to-br from-purple-500 to-pink-400" />
-                            <h1 className="mt-8 text-4xl font-black text-purple-700">
-                                {name || "Moodie"}
-                            </h1>
-                            <p className="mt-4 text-purple-400">
-                                오늘의 추천 완료 ☁️
-                            </p>
-                        </div>
-                    )
+
+<div
+className="
+h-full
+overflow-y-auto
+pb-32
+"
+>
+
+<div
+className="
+px-6
+pt-12
+"
+>
+
+<h1
+className="
+text-[42px]
+font-black
+text-[#6E31E8]
+"
+>
+
+{name || "사용자"}님
+
+</h1>
+
+<p
+className="
+mt-2
+pb-4
+text-purple-400
+"
+>
+
+오늘도 무디와 함께해요
+
+</p>
+
+</div>
+
+<MonthlyReport />
+
+</div>
+
+)
                 )}
 
                 {tab === "map" && (

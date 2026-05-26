@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import OptionCard from './components/OptionCard'
 import StepCard from './components/StepCard'
 import { questions } from './data/questions'
@@ -7,12 +7,12 @@ import HomeScreen from "./screens/HomeScreen"
 
 function App() {
     const [step, setStep] = useState(-1)
-    const [screen, setScreen] = useState("onboarding")
+    const [screen, setScreen] = useState("")
     const [tab, setTab] = useState("home")
     const [mood, setMood] = useState("")
     const [place, setPlace] = useState("")
     const [homeStep, setHomeStep] = useState(0)
-    const [name, setName] = useState("")
+    const [name, setName] = useState(localStorage.getItem("username") || "")    
     const [selected, setSelected] = useState<string[]>([])
     const [spots, setSpots] = useState<any[]>([])
 
@@ -23,6 +23,12 @@ function App() {
             setSelected([...selected, option])
         }
     }
+
+    useEffect(() => {
+    const savedName = localStorage.getItem("username")
+    if (savedName) {
+    setName(savedName)
+    setScreen("home")} else {setScreen("onboarding")}}, [])
 
     return (
         <main className="flex min-h-screen items-center justify-center bg-gradient-to-br from-[#f5edff] to-[#e9ddff] p-4">
@@ -119,6 +125,9 @@ function App() {
                                     if (step === 0 && !name.trim()) {
                                         alert("이름을 입력해주세요 ☁️")
                                         return
+                                    }
+                                    if (step === 0){
+                                        localStorage.setItem("username", name)
                                     }
                                     if (step < questions.length) {
                                         setStep(step + 1)
