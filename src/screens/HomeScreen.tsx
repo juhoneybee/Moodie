@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import BottomNav from "../components/BottomNav"
 import HomeTab from "./main/HomeTab"
 import MapTab from "./main/MapTab"
@@ -19,6 +20,8 @@ interface Props {
     setHomeStep: any
     spots: any
     setSpots: any
+    location: any
+    setLocation: any
 }
 
 /* ──── 감정별 추천 장소 (하드코딩 - 백엔드 연결 전) ──── */
@@ -48,8 +51,24 @@ function HomeScreen({
     homeStep,
     setHomeStep,
     spots,
-    setSpots
+    setSpots,
+    location,
+    setLocation
 }: Props) {
+
+    useEffect(() => {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                setLocation({
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                })
+            },
+            (error) => {
+                console.log(error)
+            }
+        )
+    }, [])
 
     /* ──── 데이터 가져오기 ──── */
     const logs = JSON.parse(localStorage.getItem("moodLogs") || "[]")
@@ -140,11 +159,10 @@ function HomeScreen({
                             homeStep={homeStep}
                             setHomeStep={setHomeStep}
                             setSpots={setSpots}
+                            location={location}
                         />
                     ) : (
-
                         <div className="h-full overflow-y-auto pb-32">
-
                             {/* ===== 1. 인사 헤더 ===== */}
                             <div className="px-6 pt-12">
                                 <div className="flex items-center justify-between">
@@ -349,7 +367,6 @@ function HomeScreen({
                             <div className="mt-6">
                                 <MonthlyReport />
                             </div>
-
                         </div>
                     )
                 )}
