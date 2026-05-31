@@ -24,41 +24,69 @@ app.get("/recommend", async (req: Request, res: Response) => {
         const place = req.query.place
         const lat = req.query.lat
         const lng = req.query.lng
-        const keyword = (keywordMap as any)[mood as string]?.[place as string] || place
 
-        console.log("검색 키워드:", keyword)
+        const keywords =
+            (keywordMap as any)[mood as string]?.[place as string]
+            || [place]
+
+        console.log("검색 키워드:", keywords)
         console.log("mood:", mood)
         console.log("place:", place)
-        console.log("keyword:", keyword)
+        console.log("isArray:", Array.isArray(keywords))
 
-        const response = await axios.get(
-            "https://dapi.kakao.com/v2/local/search/keyword.json",
-            {
-                headers: {
-                    Authorization: `KakaoAK ${process.env.KAKAO_REST_API_KEY}`
-                },
-                params: {
-                    query: keyword,
-                    x: lng,
-                    y: lat,
-                    radius: 3000,
-                    size: 10
+        let allDocuments: any[] = []
+
+        for (const keyword of keywords) {
+
+            console.log("검색중:", keyword)
+
+            const response = await axios.get(
+                "https://dapi.kakao.com/v2/local/search/keyword.json",
+                {
+                    headers: {
+                        Authorization: `KakaoAK ${process.env.KAKAO_REST_API_KEY}`
+                    },
+                    params: {
+                        query: keyword,
+                        x: lng,
+                        y: lat,
+                        radius: 3000,
+                        size: 10
+                    }
                 }
-            }
+            )
+
+            allDocuments.push(
+                ...response.data.documents
+            )
+        }
+
+        const documents = Array.from(
+            new Map(
+                allDocuments.map(
+                    (doc: any) => [
+                        doc.id,
+                        doc
+                    ]
+                )
+            ).values()
         )
 
-        const spots = response.data.documents.map((p: any) => {
+        const spots = documents.map((p: any) => {
+
             const score = calculateScore(
                 mood as string,
                 p.category_name,
                 Number(p.distance)
             )
+
             console.log(
                 p.place_name,
                 p.distance,
                 p.category_name,
                 score
             )
+
             return {
                 name: p.place_name,
                 address: p.road_address_name,
@@ -70,7 +98,10 @@ app.get("/recommend", async (req: Request, res: Response) => {
             }
         })
 
-        spots.sort((a: any, b: any) => b.score - a.score)
+        spots.sort(
+            (a: any, b: any) =>
+                b.score - a.score
+        )
 
         console.log(
             spots.map((s: any) => ({
@@ -79,9 +110,22 @@ app.get("/recommend", async (req: Request, res: Response) => {
             }))
         )
 
-        res.json(spots.slice(0, 5))
+        res.json(
+            spots.slice(0, 10)
+        )
 
     } catch (err: any) {
+
+        console.log("에러 발생")
+
+        console.log(
+            err.response?.data
+        )
+
+        console.log(
+            err.message
+        )
+
         res.status(500).json({
             error: "카카오 API 실패"
         })

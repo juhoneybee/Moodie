@@ -83,7 +83,7 @@ function ChatTab() {
                 y: String(userLocation.y)
             })
 
-            const res = await fetch(`http://localhost:4000/api/recommend?${params}`)
+            const res = await fetch(`http://localhost:3000/recommend?${params}`)
             const data = await res.json()
             return data.places || []
         } catch (err) {
