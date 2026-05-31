@@ -129,7 +129,7 @@ function HomeTab({
       </div>
 
       {homeStep < 2 && (
-        <div className="absolute bottom-[-20px] left-6 right-6 z-50">
+        <div className="absolute bottom-[25px] left-6 right-6 z-50">
           <button
             disabled={!selected}
             onClick={() => {
@@ -153,7 +153,7 @@ function HomeTab({
               localStorage.setItem("moodLogs", JSON.stringify(logs))
 
               fetch(
-                `http://localhost:3000/recommend?mood=${mood}&place=${place}&lat=${location.lat}&lng=${location.lng}`
+                `https://moodie-api.onrender.com/recommend?mood=${mood}&place=${place}&lat=${location.lat}&lng=${location.lng}`
               )
                 .then(r => r.json())
                 .then(data => {
@@ -164,7 +164,7 @@ function HomeTab({
                   setHomeStep(2)
                 })
             }}
-            className={`w-full h-16 rounded-full text-lg font-black transition ${
+            className={`w-full h-14 rounded-full text-lg font-black transition ${
               selected
                 ? `text-white bg-gradient-to-r from-[#7B49FF] to-[#B381FF]`
                 : `bg-[#D8DCE6] text-white`

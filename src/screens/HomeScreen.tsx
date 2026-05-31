@@ -147,7 +147,7 @@ function HomeScreen({
 
     return (
         <section className="h-full bg-[#f7f4ff] relative">
-            <div className="h-full pb-32">
+            <div className="h-full pb-20">
                 {tab === "home" && (
                     homeStep < 2 ? (
                         <HomeTab
@@ -162,7 +162,7 @@ function HomeScreen({
                             location={location}
                         />
                     ) : (
-                        <div className="h-full overflow-y-auto pb-32">
+                        <div className="h-full overflow-y-auto pb-20">
                             {/* ===== 1. 인사 헤더 ===== */}
                             <div className="px-6 pt-12">
                                 <div className="flex items-center justify-between">

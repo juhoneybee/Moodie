@@ -83,7 +83,7 @@ function ChatTab() {
                 y: String(userLocation.y)
             })
 
-            const res = await fetch(`http://localhost:3000/recommend?${params}`)
+            const res = await fetch(`https://moodie-api.onrender.com/recommend?${params}`)
             const data = await res.json()
             return data.places || []
         } catch (err) {
@@ -201,7 +201,7 @@ function ChatTab() {
             {/* 채팅 영역 */}
             <div
                 ref={scrollRef}
-                className="flex-1 overflow-y-auto px-5 pb-28"
+                className="flex-1 overflow-y-auto px-5 pb-20"
             >
                 <div className="space-y-3 mt-2">
                     {messages.map((msg, i) => (
@@ -296,7 +296,7 @@ function ChatTab() {
             </div>
 
             {/* 입력창 */}
-            <div className="absolute bottom-28 left-4 right-4">
+            <div className="absolute bottom-[25px] left-4 right-4">
                 <div className="flex gap-2 items-center">
                     <div className="flex-1 flex bg-white rounded-full shadow overflow-hidden">
                         <input
