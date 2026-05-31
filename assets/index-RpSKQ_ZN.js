@@ -21,54 +21,54 @@ Error generating stack: `+e.message+`
         border
 
         ${t?`bg-purple-200 border-purple-400 scale-105`:`bg-white/70 border-white`}
-      `,children:[(0,f.jsx)(`div`,{className:`flex-1 flex items-center justify-center text-5xl`,children:`☁️`}),(0,f.jsx)(`p`,{className:`font-semibold text-purple-900`,children:e})]})}function m({step:e}){return(0,f.jsxs)(`div`,{className:`inline-flex items-center px-4 py-2 rounded-full bg-purple-100 text-purple-700 text-sm font-bold`,children:[`STEP `,e]})}var h=[{step:1,title:`평소에 자주 가는 공간은 어디인가요?`,options:[{label:`맛집`,emoji:`🍽️`},{label:`카페`,emoji:`☕`},{label:`와인바 / 술집`,emoji:`🍷`},{label:`산책 / 공원`,emoji:`🌳`},{label:`전시 / 문화`,emoji:`🖼️`},{label:`쇼핑 / 팝업스토어`,emoji:`🛍️`},{label:`보드게임/ 방탈출`,emoji:`🎲`},{label:`기타`,emoji:`❓`}]},{step:2,title:`기분을 회복하는 나만의 방법은?`,options:[{label:`혼자 있기`,emoji:`🤫`},{label:`대화하기`,emoji:`💬`},{label:`음악 듣기`,emoji:`🎵`},{label:`산책하기`,emoji:`🚶️`},{label:`글쓰기 / 읽기`,emoji:`📖`},{label:`기타`,emoji:`❓`}]}];function g({icon:e,title:t,desc:n}){return(0,f.jsxs)(`div`,{className:`flex gap-5 rounded-[36px] bg-white/60 p-6 shadow-sm backdrop-blur-xl`,children:[(0,f.jsx)(`div`,{className:`flex h-16 w-16 items-center justify-center rounded-full bg-[#EEE6FF] text-3xl`,children:e}),(0,f.jsxs)(`div`,{children:[(0,f.jsx)(`h3`,{className:`text-2xl font-bold text-[#4D278C]`,children:t}),(0,f.jsx)(`p`,{className:`mt-2 leading-relaxed text-[#9B7EEB]`,children:n})]})]})}function _({onFinish:e}){return(0,f.jsxs)(`section`,{className:`\r
-            h-full\r
-            overflow-y-auto\r
-            px-8\r
-            pt-6\r
-            pb-6\r
-            bg-[#f7f4ff]\r
-            `,children:[(0,f.jsx)(`div`,{className:`flex items-center justify-between mb-10`,children:(0,f.jsx)(`h1`,{className:`text-2xl font-black text-purple-700`,children:`MOODMAP`})}),(0,f.jsx)(`div`,{className:`flex justify-center`,children:(0,f.jsx)(`img`,{src:`./moodie.png`,className:`\r
-                    w-44\r
-                    drop-shadow-xl\r
-                    `})}),(0,f.jsxs)(`div`,{className:`mt-6 text-center`,children:[(0,f.jsxs)(`h1`,{className:`\r
-                    text-[28px]\r
-                    leading-[1.15]\r
-                    font-black\r
-                    text-[#6E31E8]\r
-                    `,children:[`원활한 서비스 이용을 위해`,(0,f.jsx)(`br`,{}),`권한이 필요해요!`]}),(0,f.jsxs)(`p`,{className:`\r
-                    mt-5\r
-                    text-xl\r
-                    text-[#A57AFF]\r
-                    leading-relaxed\r
-                    `,children:[`무디와 함께`,(0,f.jsx)(`br`,{}),`감정 지도를 완성해봐요!`]})]}),(0,f.jsxs)(`div`,{className:`mt-5 space-y-6`,children:[(0,f.jsx)(g,{icon:`📍`,title:`위치 권한`,desc:`주변 무드스팟을 추천해드려요`}),(0,f.jsx)(g,{icon:`🔔`,title:`알림 설정`,desc:`감정 리포트를 놓치지 마세요`})]}),(0,f.jsx)(`button`,{onClick:e,className:`\r
-                mt-12\r
-                h-16\r
-                w-full\r
-                rounded-full\r
-                bg-gradient-to-r\r
-                from-[#7B49FF]\r
-                to-[#B381FF]\r
-                text-white\r
-                text-xl\r
-                font-bold\r
-                shadow-xl\r
-                shrink-0\r
-                `,children:`좋아요! 권한 허용하기 →`}),(0,f.jsx)(`button`,{onClick:e,className:`\r
-                w-full\r
-                h-[56px]\r
-                mt-3\r
-                text-[#B497F9]\r
-                text-lg\r
-                font-semibold\r
-                shrink-0\r
-                `,children:`나중에 할래요`})]})}function v({tab:e,setTab:t}){let n=(n,r,i)=>(0,f.jsxs)(`button`,{onClick:()=>t(n),className:`\r
-        flex\r
-        flex-col\r
-\r
-        items-center\r
-\r
-        gap-1\r
+      `,children:[(0,f.jsx)(`div`,{className:`flex-1 flex items-center justify-center text-5xl`,children:`☁️`}),(0,f.jsx)(`p`,{className:`font-semibold text-purple-900`,children:e})]})}function m({step:e}){return(0,f.jsxs)(`div`,{className:`inline-flex items-center px-4 py-2 rounded-full bg-purple-100 text-purple-700 text-sm font-bold`,children:[`STEP `,e]})}var h=[{step:1,title:`평소에 자주 가는 공간은 어디인가요?`,options:[`맛집`,`카페`,`와인바 / 술집`,`산책 / 공원`,`전시 / 문화`,`쇼핑 / 팝업스토어`,`기타`]},{step:2,title:`기분을 회복하는 나만의 방법은?`,options:[`혼자 있기`,`대화하기`,`음악 듣기`,`산책하기`,`글쓰기 / 읽기`,`기타`]}];function g({icon:e,title:t,desc:n}){return(0,f.jsxs)(`div`,{className:`flex gap-5 rounded-[36px] bg-white/60 p-6 shadow-sm backdrop-blur-xl`,children:[(0,f.jsx)(`div`,{className:`flex h-16 w-16 items-center justify-center rounded-full bg-[#EEE6FF] text-3xl`,children:e}),(0,f.jsxs)(`div`,{children:[(0,f.jsx)(`h3`,{className:`text-2xl font-bold text-[#4D278C]`,children:t}),(0,f.jsx)(`p`,{className:`mt-2 leading-relaxed text-[#9B7EEB]`,children:n})]})]})}function _({onFinish:e,setLocation:t}){return(0,f.jsxs)(`section`,{className:`
+            h-full
+            overflow-y-auto
+            px-8
+            pt-6
+            pb-6
+            bg-[#f7f4ff]
+            `,children:[(0,f.jsx)(`div`,{className:`flex items-center justify-between mb-10`,children:(0,f.jsx)(`h1`,{className:`text-2xl font-black text-purple-700`,children:`MOODMAP`})}),(0,f.jsx)(`div`,{className:`flex justify-center`,children:(0,f.jsx)(`img`,{src:`./moodie.png`,className:`
+                    w-44
+                    drop-shadow-xl
+                    `})}),(0,f.jsxs)(`div`,{className:`mt-6 text-center`,children:[(0,f.jsxs)(`h1`,{className:`
+                    text-[28px]
+                    leading-[1.15]
+                    font-black
+                    text-[#6E31E8]
+                    `,children:[`원활한 서비스 이용을 위해`,(0,f.jsx)(`br`,{}),`권한이 필요해요!`]}),(0,f.jsxs)(`p`,{className:`
+                    mt-5
+                    text-xl
+                    text-[#A57AFF]
+                    leading-relaxed
+                    `,children:[`무디와 함께`,(0,f.jsx)(`br`,{}),`감정 지도를 완성해봐요!`]})]}),(0,f.jsxs)(`div`,{className:`mt-5 space-y-6`,children:[(0,f.jsx)(g,{icon:`📍`,title:`위치 권한`,desc:`주변 무드스팟을 추천해드려요`}),(0,f.jsx)(g,{icon:`🔔`,title:`알림 설정`,desc:`감정 리포트를 놓치지 마세요`})]}),(0,f.jsx)(`button`,{onClick:()=>{navigator.geolocation.getCurrentPosition(n=>{t({lat:n.coords.latitude,lng:n.coords.longitude}),e()},e=>{console.error(e),alert(`위치 권한이 필요해요 ☁️`)})},className:`
+                mt-12
+                h-16
+                w-full
+                rounded-full
+                bg-gradient-to-r
+                from-[#7B49FF]
+                to-[#B381FF]
+                text-white
+                text-xl
+                font-bold
+                shadow-xl
+                shrink-0
+                `,children:`좋아요! 권한 허용하기 →`}),(0,f.jsx)(`button`,{onClick:e,className:`
+                w-full
+                h-[56px]
+                mt-3
+                text-[#B497F9]
+                text-lg
+                font-semibold
+                shrink-0
+                `,children:`나중에 할래요`})]})}function v({tab:e,setTab:t}){let n=(n,r,i)=>(0,f.jsxs)(`button`,{onClick:()=>t(n),className:`
+        flex
+        flex-col
+
+        items-center
+
+        gap-1
       `,children:[(0,f.jsx)(`div`,{className:`
           text-xl
 
@@ -77,243 +77,104 @@ Error generating stack: `+e.message+`
           text-xs
 
           ${e===n?`text-purple-600`:`text-purple-300`}
-        `,children:i})]});return(0,f.jsxs)(`div`,{className:`\r
-        absolute\r
-\r
-        bottom-0\r
-\r
-        left-0\r
-        right-0\r
-\r
-        h-24\r
-\r
-        bg-white/80\r
-\r
-        backdrop-blur-xl\r
-\r
-        rounded-t-[36px]\r
-\r
-        flex\r
-\r
-        justify-around\r
-\r
-        items-center\r
-      `,children:[n(`home`,`🏠`,`홈`),n(`map`,`🗺️`,`지도`),n(`chat`,`💬`,`Moodie`),n(`diary`,`📖`,`일기`),n(`settings`,`⚙️`,`설정`)]})}var y={mood:{title:`오늘 당신의 마음은 어떤 색인가요?`,options:[{emoji:`😊`,label:`행복해요`,color:`#F9D949`},{emoji:`😍`,label:`설레요`,color:`#F6C5D0`},{emoji:`🥳`,label:`신나요`,color:`#F4B56D`},{emoji:`😌`,label:`차분해요`,color:`#5CA889`},{emoji:`😴`,label:`피곤해요`,color:`#66739B`},{emoji:`😕`,label:`복잡해요`,color:`#D8D4F5`},{emoji:`🥲`,label:`우울해요`,color:`#AEB3DD`},{emoji:`😢`,label:`슬퍼요`,color:`#E0E0E0`},{emoji:`😤`,label:`답답해요`,color:`#C9A3FF`},{emoji:`😵`,label:`멍해요`,color:`#C5CBE9`},{emoji:`😡`,label:`화나요`,color:`#E0E0E0`},{emoji:`😢`,label:`외로워요`,color:`#E0E0E0`}]},place:{title:`어디로 가고 싶나요?`,options:[{label:`식당`,emoji:`🍽️`},{label:`카페`,emoji:`☕`},{label:`술집`,emoji:`🍷`},{label:`Bar`,emoji:`🍸`},{label:`쇼핑`,emoji:`🛍️`},{label:`기타`,emoji:`❓`}]}};function b({name:e,mood:t,setMood:n,place:r,setPlace:i,homeStep:a,setHomeStep:o,setSpots:s}){let c=a===0?y.mood:a===1?y.place:null,l=a===0?t:r;return(0,f.jsxs)(`section`,{className:`h-full relative flex flex-col`,children:[(0,f.jsxs)(`div`,{className:`flex-1 overflow-y-auto pb-[140px]`,children:[(0,f.jsxs)(`div`,{className:`px-8 pt-6`,children:[(0,f.jsxs)(`div`,{className:`mb-10 flex items-center`,children:[a===1&&(0,f.jsx)(`button`,{onClick:()=>{n(``),i(``),o(0)},className:`\r
-w-12\r
-h-12\r
-\r
-rounded-full\r
-\r
-bg-white\r
-\r
-shadow-md\r
-\r
-flex\r
-items-center\r
-justify-center\r
-`,children:`←`}),(0,f.jsx)(`h1`,{className:`
-text-2xl
-font-black
-text-purple-700
+        `,children:i})]});return(0,f.jsxs)(`div`,{className:`
+        absolute
 
-${a===1?`ml-4`:`ml-0`}
-`,children:`MOODMAP`})]}),a===0&&(0,f.jsxs)(f.Fragment,{children:[(0,f.jsx)(`img`,{src:`./moodie.png`,className:`\r
-w-40\r
-mx-auto\r
-`}),(0,f.jsxs)(`h1`,{className:`\r
-mt-8\r
-text-center\r
-text-[52px]\r
-leading-none\r
-font-black\r
-text-[#6E31E8]\r
-`,children:[e||`사용자`,`님`,(0,f.jsx)(`br`,{}),`환영해요 ☁️`]})]}),a<2&&(0,f.jsx)(`p`,{className:`
-text-center
-font-black
-tracking-[-0.03em]
-text-[#6E31E8]
+        bottom-0
 
-${a===0?`mt-5 text-[22px]`:`mt-16 text-[40px]`}
-`,children:c?.title})]}),a<2&&(0,f.jsx)(`div`,{className:`mt-12 px-6 grid grid-cols-2 gap-6`,children:a===0?c?.options.map(e=>(0,f.jsxs)(`button`,{onClick:()=>n(e.label),className:`
-h-[140px]
+        left-0
+        right-0
 
-rounded-[40px]
+        h-24
 
-bg-white
+        bg-white/80
 
-shadow
+        backdrop-blur-xl
 
-${t===e.label?`border-[6px] border-purple-500 scale-105`:``}
-`,children:[(0,f.jsx)(`div`,{className:`text-5xl`,children:e.emoji}),(0,f.jsx)(`div`,{className:`mt-2 font-black text-2xl`,children:e.label})]},e.label)):c?.options.map(e=>(0,f.jsxs)(`button`,{onClick:()=>i(e.label),className:`
-h-[140px]
+        rounded-t-[36px]
 
-rounded-[40px]
+        flex
 
-bg-white
+        justify-around
 
-shadow
+        items-center
+      `,children:[n(`home`,`🏠`,`홈`),n(`map`,`🗺️`,`지도`),n(`chat`,`💬`,`Moodie`),n(`diary`,`📖`,`일기`),n(`settings`,`⚙️`,`설정`)]})}var y={mood:{title:`오늘 당신의 마음은 어떤 색인가요?`,options:[{emoji:`😊`,label:`행복해요`,color:`#F9D949`},{emoji:`😍`,label:`설레요`,color:`#F6C5D0`},{emoji:`🥳`,label:`신나요`,color:`#F4B56D`},{emoji:`😌`,label:`차분해요`,color:`#5CA889`},{emoji:`😴`,label:`피곤해요`,color:`#66739B`},{emoji:`😕`,label:`복잡해요`,color:`#D8D4F5`},{emoji:`🥲`,label:`우울해요`,color:`#AEB3DD`},{emoji:`😢`,label:`슬퍼요`,color:`#E0E0E0`},{emoji:`😤`,label:`답답해요`,color:`#C9A3FF`},{emoji:`😵`,label:`멍해요`,color:`#C5CBE9`},{emoji:`😡`,label:`화나요`,color:`#E0E0E0`},{emoji:`😢`,label:`외로워요`,color:`#E0E0E0`}]},place:{title:`어디로 가고 싶나요?`,options:[{label:`식당`,emoji:`🍽️`},{label:`카페`,emoji:`☕`},{label:`술집`,emoji:`🍷`},{label:`Bar`,emoji:`🍸`},{label:`쇼핑`,emoji:`🛍️`},{label:`기타`,emoji:`❓`}]}};function b({name:e,mood:t,setMood:n,place:r,setPlace:i,homeStep:a,setHomeStep:o,setSpots:s,location:c}){console.log(`현재 위치`,c);let l=a===0?y.mood:a===1?y.place:null,u=a===0?t:r;return(0,f.jsxs)(`section`,{className:`h-full relative flex flex-col`,children:[(0,f.jsxs)(`div`,{className:`flex-1 overflow-y-auto pb-[140px]`,children:[(0,f.jsxs)(`div`,{className:`px-8 pt-6`,children:[(0,f.jsxs)(`div`,{className:`mb-10 flex items-center`,children:[a===1&&(0,f.jsx)(`button`,{onClick:()=>{n(``),i(``),o(0)},className:`w-12 h-12 rounded-full bg-white shadow-md flex items-center justify-center`,children:`←`}),(0,f.jsx)(`h1`,{className:`text-2xl font-black text-purple-700 ${a===1?`ml-4`:`ml-0`}`,children:`MOODMAP`})]}),a===0&&(0,f.jsxs)(f.Fragment,{children:[(0,f.jsx)(`img`,{src:`./moodie.png`,className:`w-40 mx-auto`}),(0,f.jsxs)(`h1`,{className:`mt-8 text-center text-[52px] leading-none font-black text-[#6E31E8]`,children:[e||`사용자`,`님`,(0,f.jsx)(`br`,{}),`환영해요 ☁️`]})]}),a<2&&(0,f.jsx)(`p`,{className:`text-center font-black tracking-[-0.03em] text-[#6E31E8] ${a===0?`mt-5 text-[22px]`:`mt-16 text-[40px]`}`,children:l?.title})]}),a<2&&(0,f.jsx)(`div`,{className:`mt-12 px-6 grid grid-cols-2 gap-6`,children:a===0?l?.options.map(e=>(0,f.jsxs)(`button`,{onClick:()=>n(e.label),className:`h-[140px] rounded-[40px] bg-white shadow ${t===e.label?`border-[6px] border-purple-500 scale-105`:``}`,children:[(0,f.jsx)(`div`,{className:`text-5xl`,children:e.emoji}),(0,f.jsx)(`div`,{className:`mt-2 font-black text-2xl`,children:e.label})]},e.label)):l?.options.map(e=>(0,f.jsxs)(`button`,{onClick:()=>i(e.label),className:`h-[140px] rounded-[40px] bg-white shadow flex flex-col items-center justify-center ${r===e.label?`border-[6px] border-purple-500 scale-105`:``}`,children:[(0,f.jsx)(`div`,{className:`text-5xl`,children:e.emoji}),(0,f.jsx)(`div`,{className:`mt-3 text-2xl font-black text-[#6E31E8]`,children:e.label})]},e.label))})]}),a<2&&(0,f.jsx)(`div`,{className:`absolute bottom-[-20px] left-6 right-6 z-50`,children:(0,f.jsx)(`button`,{disabled:!u,onClick:()=>{if(!u)return;if(a===0){o(1);return}let e=JSON.parse(localStorage.getItem(`moodLogs`)||`[]`);e.push({mood:t,place:r,createdAt:new Date().toISOString()}),localStorage.setItem(`moodLogs`,JSON.stringify(e)),fetch(`http://localhost:3000/recommend?mood=${t}&place=${r}&lat=${c.lat}&lng=${c.lng}`).then(e=>e.json()).then(e=>{s(e),o(2)}).catch(()=>{o(2)})},className:`w-full h-16 rounded-full text-lg font-black transition ${u?`text-white bg-gradient-to-r from-[#7B49FF] to-[#B381FF]`:`bg-[#D8DCE6] text-white`}`,children:`다음 단계`})})]})}function x({spots:e}){let t=(0,l.useRef)(null);return(0,l.useEffect)(()=>{if(!window.naver||!t.current)return;let n=e[0]??{lat:37.5665,lng:126.978},r=new window.naver.maps.Map(t.current,{center:new window.naver.maps.LatLng(n.lat,n.lng),zoom:15});e.forEach(e=>{new window.naver.maps.Marker({position:new window.naver.maps.LatLng(e.lat,e.lng),map:r})})},[e]),(0,f.jsx)(`div`,{className:`absolute top-0 left-0 right-0 bottom-24 overflow-hidden rounded-t-[40px]`,children:(0,f.jsx)(`div`,{ref:t,style:{width:`100%`,height:`100%`}})})}var ee=[{keywords:[`피곤`,`지쳐`,`힘들`],emotion:`피곤해요`,reply:`오늘은 에너지를 조금 아껴야겠어요 ☁️`,places:[`🌿 공원 산책`,`☕ 조용한 카페`,`📚 북카페`]},{keywords:[`우울`,`슬퍼`],emotion:`우울해요`,reply:`괜찮아요. 지금 감정을 같이 들여다볼게요.`,places:[`🌳 한강 산책`,`🎨 전시`,`☕ 햇빛 좋은 카페`]},{keywords:[`답답`,`짜증`],emotion:`답답해요`,reply:`조금 환기할 공간이 필요해 보여요.`,places:[`🚶 산책로`,`🌊 전망 좋은 곳`,`🍃 공원`]},{keywords:[`설레`,`행복`],emotion:`설레요`,reply:`좋은 에너지가 느껴져요 ✨`,places:[`🍝 맛집`,`🛍 쇼핑`,`🍷 분위기 바`]}];function S(){let[e,t]=(0,l.useState)([{role:`bot`,text:`안녕 오늘 기분이 어때?`}]),[n,r]=(0,l.useState)(``),i=e=>ee.find(t=>t.keywords.some(t=>e.includes(t)))||{emotion:`복잡해요`,reply:`조금 더 이야기해줄래?`,places:[`☁️ 무드 스팟`]};return(0,f.jsxs)(`section`,{className:`h-full flex flex-col`,children:[(0,f.jsxs)(`div`,{className:`flex-1 overflow-y-auto px-6 pt-10 pb-28`,children:[(0,f.jsx)(`h1`,{className:`text-4xl font-black text-[#6E31E8] mb-8`,children:`무디와 대화하기 ☁️`}),(0,f.jsx)(`div`,{className:`space-y-4`,children:e.map((e,t)=>(0,f.jsx)(`div`,{className:`flex ${e.role===`user`?`justify-end`:`justify-start`}`,children:(0,f.jsxs)(`div`,{className:`max-w-[80%] px-5 py-4 rounded-[28px] ${e.role===`user`?`bg-[#7B49FF] text-white`:`bg-white text-[#5D3EBF]`}`,children:[(0,f.jsx)(`p`,{children:e.text}),e.places&&(0,f.jsx)(`div`,{className:`mt-4 space-y-2`,children:e.places.map(e=>(0,f.jsx)(`div`,{className:`bg-white/60 rounded-2xl px-4 py-3 text-sm`,children:e},e))})]})},t))})]}),(0,f.jsx)(`div`,{className:`absolute bottom-28 left-5 right-5`,children:(0,f.jsxs)(`div`,{className:`flex gap-3`,children:[(0,f.jsx)(`input`,{value:n,onChange:e=>r(e.target.value),placeholder:`지금 기분 이야기하기`,className:`flex-1 h-14 rounded-full px-6 outline-none`}),(0,f.jsx)(`button`,{onClick:()=>{if(!n.trim())return;let a=i(n);t([...e,{role:`user`,text:n},{role:`bot`,text:a.reply,places:a.places}]),r(``)},className:`w-16 rounded-full bg-[#7B49FF] text-white`,children:`↑`})]})})]})}function C(e){let t=e.toLowerCase();return t.includes(`행복`)||t.includes(`좋`)||t.includes(`즐`)||t.includes(`기뻐`)?`행복`:t.includes(`우울`)||t.includes(`슬퍼`)||t.includes(`눈물`)?`우울`:t.includes(`답답`)||t.includes(`짜증`)||t.includes(`화`)?`답답`:t.includes(`피곤`)||t.includes(`지쳐`)||t.includes(`힘들`)?`피곤`:`차분`}function te(){let[e,t]=(0,l.useState)(!1),[n,r]=(0,l.useState)([]);(0,l.useEffect)(()=>{let e=localStorage.getItem(`diaries`);e&&r(JSON.parse(e))},[]);let[i,a]=(0,l.useState)(new Date().toISOString().slice(0,10)),[o,s]=(0,l.useState)(``),[c,u]=(0,l.useState)(``),[d,p]=(0,l.useState)(``);return e?(0,f.jsxs)(`section`,{className:`h-full bg-[#f7f4ff] flex flex-col`,children:[(0,f.jsxs)(`div`,{className:`flex items-center justify-between px-6 pt-10`,children:[(0,f.jsx)(`button`,{onClick:()=>t(!1),className:`text-xl`,children:`←`}),(0,f.jsx)(`h1`,{className:`font-black text-xl text-[#6E31E8]`,children:`감정 일기`}),(0,f.jsx)(`button`,{onClick:()=>{if(!o||!d){alert(`감정과 일기를 입력해주세요 ☁️`);return}let e=[{id:Date.now(),date:i,mood:o,activity:c,content:d,detectedMood:C(`
+${o}
+${c}
+${d}
+`)},...n];r(e),localStorage.setItem(`diaries`,JSON.stringify(e)),a(new Date().toISOString().slice(0,10)),s(``),u(``),p(``),t(!1)},className:`
+              text-[#7B49FF]
+              font-black
+            `,children:`저장`})]}),(0,f.jsxs)(`div`,{className:`flex-1 overflow-y-auto px-6 pt-8 pb-32 space-y-6`,children:[(0,f.jsxs)(`div`,{children:[(0,f.jsx)(`p`,{className:`font-bold mb-2`,children:`날짜`}),(0,f.jsx)(`input`,{type:`date`,value:i,onChange:e=>a(e.target.value),className:`
+                w-full
+                h-14
+                rounded-3xl
+                px-5
+              `})]}),(0,f.jsxs)(`div`,{children:[(0,f.jsx)(`p`,{className:`font-bold mb-2`,children:`오늘 감정`}),(0,f.jsx)(`input`,{value:o,onChange:e=>s(e.target.value),placeholder:`예: 행복했어요`,className:`
+                w-full
+                h-14
+                rounded-3xl
+                px-5
+              `})]}),(0,f.jsxs)(`div`,{children:[(0,f.jsx)(`p`,{className:`font-bold mb-2`,children:`오늘 한 일`}),(0,f.jsx)(`input`,{value:c,onChange:e=>u(e.target.value),placeholder:`예: 친구 만나기`,className:`
+                w-full
+                h-14
+                rounded-3xl
+                px-5
+              `})]}),(0,f.jsxs)(`div`,{children:[(0,f.jsx)(`p`,{className:`font-bold mb-2`,children:`일기`}),(0,f.jsx)(`textarea`,{value:d,onChange:e=>p(e.target.value),placeholder:`오늘 하루를 적어주세요`,className:`
+                w-full
+                h-[260px]
+                rounded-[32px]
+                p-5
+                resize-none
+              `})]})]})]}):(0,f.jsxs)(`section`,{className:`
+        h-full
+        relative
+        bg-[#f7f4ff]
+      `,children:[(0,f.jsxs)(`div`,{className:`
+          overflow-y-auto
+          h-full
+          px-6
+          pt-12
+          pb-36
+        `,children:[(0,f.jsx)(`h1`,{className:`
+            text-[34px]
+            font-black
+            text-[#6E31E8]
+          `,children:`감정 일기`}),n.length===0?(0,f.jsxs)(`div`,{className:`
+              mt-40
+              text-center
+            `,children:[(0,f.jsx)(`div`,{className:`text-6xl`,children:`📖`}),(0,f.jsx)(`p`,{className:`
+                mt-6
+                text-purple-400
+              `,children:`아직 작성한 일기가 없어요`})]}):(0,f.jsx)(`div`,{className:`mt-8 space-y-4`,children:n.map(e=>(0,f.jsxs)(`div`,{className:`
+                  bg-white
+                  rounded-[32px]
+                  p-5
+                `,children:[(0,f.jsx)(`p`,{className:`text-sm text-gray-400`,children:e.date}),(0,f.jsx)(`h3`,{className:`mt-2 text-xl font-black`,children:e.mood}),(0,f.jsx)(`p`,{className:`mt-2`,children:e.activity}),(0,f.jsx)(`p`,{className:`mt-4 text-gray-500`,children:e.content})]},e.id))})]}),(0,f.jsx)(`button`,{onClick:()=>t(!0),className:`
+          absolute
+          bottom-[-10px]
+          right-6
+
+          w-16
+          h-16
+
+          rounded-full
+
+          bg-gradient-to-r
+          from-[#7B49FF]
+          to-[#B381FF]
+
+          text-white
+          text-4xl
+
+          shadow-xl
+        `,children:`+`})]})}function ne(){return(0,f.jsx)(`div`,{className:`
+h-full
 
 flex
-flex-col
 
 items-center
 justify-center
 
-${r===e.label?`border-[6px] border-purple-500 scale-105`:``}
-`,children:[(0,f.jsx)(`div`,{className:`text-5xl`,children:e.emoji}),(0,f.jsx)(`div`,{className:`\r
-mt-3\r
-\r
-text-2xl\r
-font-black\r
-\r
-text-[#6E31E8]\r
-`,children:e.label})]},e.label))})]}),a<2&&(0,f.jsx)(`div`,{className:`\r
-absolute\r
-\r
-bottom-[-20px]\r
-\r
-left-6\r
-right-6\r
-\r
-z-50\r
-`,children:(0,f.jsx)(`button`,{disabled:!l,onClick:()=>{if(!l)return;if(a===0){o(1);return}let e=JSON.parse(localStorage.getItem(`moodLogs`)||`[]`);e.push({mood:t,place:r,createdAt:new Date().toISOString()}),localStorage.setItem(`moodLogs`,JSON.stringify(e)),fetch(`https://moodie-api.onrender.com/recommend?mood=${t}&place=${r}`).then(e=>e.json()).then(e=>{s(e),o(2)}).catch(()=>{o(2)})},className:`
-w-full
-
-h-16
-
-rounded-full
-
-text-lg
-
-font-black
-
-transition
-
-${l?`
-text-white
-
-bg-gradient-to-r
-from-[#7B49FF]
-to-[#B381FF]
-`:`
-bg-[#D8DCE6]
-text-white
-`}
-`,children:`다음 단계`})})]})}function x({spots:e}){let t=(0,l.useRef)(null);return(0,l.useEffect)(()=>{if(!window.naver||!t.current)return;let n=e[0]??{lat:37.5665,lng:126.978},r=new window.naver.maps.Map(t.current,{center:new window.naver.maps.LatLng(n.lat,n.lng),zoom:15});e.forEach(e=>{new window.naver.maps.Marker({position:new window.naver.maps.LatLng(e.lat,e.lng),map:r})})},[e]),(0,f.jsx)(`div`,{className:`absolute top-0 left-0 right-0 bottom-24 overflow-hidden rounded-t-[40px]`,children:(0,f.jsx)(`div`,{ref:t,style:{width:`100%`,height:`100%`}})})}var ee=[{keywords:[`피곤`,`지쳐`,`힘들`],emotion:`피곤해요`,reply:`오늘은 에너지를 조금 아껴야겠어요 ☁️`,places:[`🌿 공원 산책`,`☕ 조용한 카페`,`📚 북카페`]},{keywords:[`우울`,`슬퍼`],emotion:`우울해요`,reply:`괜찮아요. 지금 감정을 같이 들여다볼게요.`,places:[`🌳 한강 산책`,`🎨 전시`,`☕ 햇빛 좋은 카페`]},{keywords:[`답답`,`짜증`],emotion:`답답해요`,reply:`조금 환기할 공간이 필요해 보여요.`,places:[`🚶 산책로`,`🌊 전망 좋은 곳`,`🍃 공원`]},{keywords:[`설레`,`행복`],emotion:`설레요`,reply:`좋은 에너지가 느껴져요 ✨`,places:[`🍝 맛집`,`🛍 쇼핑`,`🍷 분위기 바`]}];function S(){let[e,t]=(0,l.useState)([{role:`bot`,text:`안녕하세요! 당신의 마음을 읽는 무디예요. ✨
-오늘 기분이 어때요?`}]),[n,r]=(0,l.useState)(``),[i,a]=(0,l.useState)(!1),[o,s]=(0,l.useState)(``),[c,u]=(0,l.useState)([]),[d,p]=(0,l.useState)(null),m=(0,l.useRef)(null);(0,l.useEffect)(()=>{navigator.geolocation?navigator.geolocation.getCurrentPosition(e=>{p({x:e.coords.longitude,y:e.coords.latitude})},()=>{p({x:126.978,y:37.5665})}):p({x:126.978,y:37.5665})},[]),(0,l.useEffect)(()=>{m.current&&(m.current.scrollTop=m.current.scrollHeight)},[e]);let h=e=>ee.find(t=>t.keywords.some(t=>e.includes(t)))||{emotion:`복잡해요`,reply:`조금 더 이야기해줄래요? 무디가 귀 기울이고 있어요.`,places:[`☁️ 무드 스팟`]},g=async e=>{if(!d)return[];try{let t=new URLSearchParams({emotion:e,x:String(d.x),y:String(d.y)});return(await(await fetch(`http://localhost:4000/api/recommend?${t}`)).json()).places||[]}catch(e){return console.error(`장소 추천 실패:`,e),[]}},_=e=>{let t=parseInt(e);return t<1e3?`${t}m`:`${(t/1e3).toFixed(1)}km`},v=e=>e.includes(`카페`)||e.includes(`커피`)?`☕`:e.includes(`음식`)||e.includes(`맛집`)||e.includes(`식당`)?`🍽️`:e.includes(`서점`)||e.includes(`북`)?`📚`:e.includes(`공원`)||e.includes(`산책`)?`🌿`:e.includes(`전시`)||e.includes(`갤러리`)||e.includes(`미술`)?`🎨`:e.includes(`바`)||e.includes(`주점`)||e.includes(`와인`)?`🍷`:e.includes(`쇼핑`)||e.includes(`팝업`)?`🛍️`:e.includes(`전망`)?`🌊`:`📍`,y=async()=>{if(!n.trim())return;let e=n;r(``);let i=h(e),a=i.emotion;t(t=>[...t,{role:`user`,text:e},{role:`bot`,text:`${i.reply}\n\n주변에서 기분에 맞는 곳을 찾고 있어요...`,loading:!0}]);let o=await g(a);t(e=>{let t=e.slice(0,-1);return o.length>0?t.push({role:`bot`,text:`${i.reply}\n\n내 주변에서 ${a}을 달래줄 곳 ${o.length}군데를 찾았어!`,emotion:a,places:o}):t.push({role:`bot`,text:`${i.reply}\n\n근처에서 장소를 찾기 어려웠어요. 위치 권한을 확인해주세요!`}),t}),o.length>0&&(s(a),u(o))},b=e=>{e.key===`Enter`&&!e.nativeEvent.isComposing&&y()},x=(e,t)=>{s(e),u(t),a(!0)};return(0,f.jsxs)(`section`,{className:`h-full flex flex-col bg-[#f7f4ff] relative`,children:[(0,f.jsxs)(`div`,{className:`px-6 pt-10 pb-4 flex items-center justify-between`,children:[(0,f.jsxs)(`div`,{className:`flex items-center gap-3`,children:[(0,f.jsx)(`div`,{className:`w-10 h-10 rounded-full bg-gradient-to-br from-[#7B49FF] to-[#B381FF] flex items-center justify-center text-lg`,children:`☁️`}),(0,f.jsxs)(`div`,{children:[(0,f.jsx)(`h1`,{className:`text-xl font-black text-[#6E31E8]`,children:`MOODMAP`}),(0,f.jsx)(`p`,{className:`text-xs text-purple-400`,children:`무디가 귀 기울이고 있어요`})]})]}),(0,f.jsx)(`div`,{className:`text-xs text-purple-300 font-bold`,children:new Date().toLocaleDateString(`ko-KR`,{month:`long`,day:`numeric`,weekday:`short`})})]}),(0,f.jsx)(`div`,{ref:m,className:`flex-1 overflow-y-auto px-5 pb-28`,children:(0,f.jsx)(`div`,{className:`space-y-3 mt-2`,children:e.map((e,t)=>(0,f.jsxs)(`div`,{children:[e.role===`bot`&&(0,f.jsx)(`p`,{className:`text-[10px] text-purple-300 mb-1 ml-1`,children:`Moodi`}),(0,f.jsx)(`div`,{className:`flex ${e.role===`user`?`justify-end`:`justify-start`}`,children:(0,f.jsxs)(`div`,{className:`
-                                        max-w-[82%] px-5 py-4
-                                        ${e.role===`user`?`bg-[#7B49FF] text-white rounded-[24px] rounded-tr-[8px]`:`bg-white text-[#4D278C] rounded-[24px] rounded-tl-[8px] shadow-sm`}
-                                    `,children:[e.loading&&(0,f.jsxs)(`div`,{className:`flex items-center gap-2 mb-2`,children:[(0,f.jsxs)(`div`,{className:`flex gap-1`,children:[(0,f.jsx)(`div`,{className:`w-2 h-2 bg-purple-400 rounded-full animate-bounce`,style:{animationDelay:`0ms`}}),(0,f.jsx)(`div`,{className:`w-2 h-2 bg-purple-400 rounded-full animate-bounce`,style:{animationDelay:`150ms`}}),(0,f.jsx)(`div`,{className:`w-2 h-2 bg-purple-400 rounded-full animate-bounce`,style:{animationDelay:`300ms`}})]}),(0,f.jsx)(`span`,{className:`text-xs text-purple-300`,children:`주변 장소 검색 중...`})]}),(0,f.jsx)(`p`,{className:`whitespace-pre-line leading-relaxed`,children:e.text}),e.places&&e.places.length>0&&(0,f.jsxs)(`div`,{className:`mt-3 space-y-2`,children:[e.places.map(e=>(0,f.jsxs)(`button`,{onClick:()=>window.open(e.url,`_blank`),className:`
-                                                        w-full
-                                                        bg-[#f7f4ff]
-                                                        rounded-2xl
-                                                        px-4 py-3
-                                                        text-left
-                                                        flex items-center gap-3
-                                                        active:scale-[0.98]
-                                                        transition
-                                                    `,children:[(0,f.jsx)(`div`,{className:`w-10 h-10 rounded-xl bg-[#EEE6FF] flex items-center justify-center text-xl shrink-0`,children:v(e.category)}),(0,f.jsxs)(`div`,{className:`flex-1 min-w-0`,children:[(0,f.jsx)(`p`,{className:`font-black text-sm text-[#4D278C] truncate`,children:e.name}),(0,f.jsxs)(`p`,{className:`text-[11px] text-purple-400 truncate`,children:[e.category,` · `,_(e.distance)]})]}),(0,f.jsx)(`span`,{className:`text-purple-300 text-xs shrink-0`,children:`→`})]},e.id)),(0,f.jsx)(`button`,{onClick:()=>x(e.emotion||``,e.places||[]),className:`
-                                                    w-full
-                                                    mt-1
-                                                    bg-[#7B49FF]
-                                                    text-white
-                                                    rounded-2xl
-                                                    py-2.5
-                                                    text-xs
-                                                    font-black
-                                                `,children:`📍 추천 큐레이션 자세히 보기`})]})]})})]},t))})}),(0,f.jsx)(`div`,{className:`absolute bottom-28 left-4 right-4`,children:(0,f.jsx)(`div`,{className:`flex gap-2 items-center`,children:(0,f.jsxs)(`div`,{className:`flex-1 flex bg-white rounded-full shadow overflow-hidden`,children:[(0,f.jsx)(`input`,{value:n,onChange:e=>r(e.target.value),onKeyDown:b,placeholder:`무디에게 이야기하기...`,className:`flex-1 h-12 px-5 outline-none text-sm bg-transparent`}),(0,f.jsx)(`button`,{onClick:y,className:`w-12 h-12 bg-gradient-to-r from-[#7B49FF] to-[#B381FF] text-white rounded-full flex items-center justify-center text-lg font-bold`,children:`▸`})]})})}),i&&(0,f.jsxs)(`div`,{className:`absolute inset-0 z-50 flex flex-col`,style:{animation:`slideUp 0.4s ease-out`},children:[(0,f.jsx)(`div`,{className:`h-[80px] bg-black/30 backdrop-blur-sm`,onClick:()=>a(!1)}),(0,f.jsxs)(`div`,{className:`flex-1 bg-gradient-to-b from-[#1A0038] to-[#2D0066] rounded-t-[32px] overflow-y-auto pb-10`,children:[(0,f.jsx)(`div`,{className:`flex justify-center pt-3 pb-2`,children:(0,f.jsx)(`div`,{className:`w-10 h-1 rounded-full bg-white/30`})}),(0,f.jsxs)(`div`,{className:`px-6 pt-2`,children:[(0,f.jsxs)(`p`,{className:`text-purple-300 text-sm font-bold`,children:[o,`을 달래줄`]}),(0,f.jsx)(`h2`,{className:`text-white text-2xl font-black mt-1`,children:`추천 큐레이션 ✨`}),(0,f.jsx)(`p`,{className:`text-purple-400 text-xs mt-2`,children:`오늘의 감정 기반 · 내 주변 실제 장소`})]}),(0,f.jsx)(`div`,{className:`mt-6 px-5 space-y-4`,children:c.map(e=>(0,f.jsx)(`button`,{onClick:()=>window.open(e.url,`_blank`),className:`
-                                        w-full
-                                        bg-white/10
-                                        backdrop-blur
-                                        rounded-[24px]
-                                        p-5
-                                        text-left
-                                        border border-white/10
-                                        active:scale-[0.98]
-                                        transition
-                                    `,children:(0,f.jsxs)(`div`,{className:`flex items-start gap-4`,children:[(0,f.jsx)(`div`,{className:`w-12 h-12 rounded-2xl bg-gradient-to-br from-[#7B49FF] to-[#B381FF] flex items-center justify-center text-2xl shrink-0`,children:v(e.category)}),(0,f.jsxs)(`div`,{className:`flex-1 min-w-0`,children:[(0,f.jsxs)(`div`,{className:`flex items-center justify-between`,children:[(0,f.jsx)(`h3`,{className:`text-white text-lg font-black truncate`,children:e.name}),(0,f.jsx)(`span`,{className:`text-purple-300 text-xs font-bold shrink-0 ml-2`,children:_(e.distance)})]}),(0,f.jsx)(`p`,{className:`text-purple-300 text-xs mt-1`,children:e.category}),(0,f.jsx)(`p`,{className:`text-purple-400 text-xs mt-1 truncate`,children:e.address}),e.phone&&(0,f.jsxs)(`p`,{className:`text-purple-400 text-xs mt-1`,children:[`📞 `,e.phone]}),(0,f.jsx)(`div`,{className:`mt-3`,children:(0,f.jsx)(`span`,{className:`text-[10px] font-bold text-[#B381FF] bg-[#7B49FF]/20 rounded-full px-2.5 py-1`,children:`카카오맵에서 보기 →`})})]})]})},e.id))}),(0,f.jsx)(`div`,{className:`mt-6 px-6`,children:(0,f.jsxs)(`button`,{onClick:()=>a(!1),className:`w-full h-14 rounded-full bg-gradient-to-r from-[#7B49FF] to-[#B381FF] text-white text-lg font-black shadow-xl flex items-center justify-center gap-2`,children:[(0,f.jsx)(`span`,{children:`💬`}),(0,f.jsx)(`span`,{children:`무디와 더 대화하기`})]})})]}),(0,f.jsx)(`style`,{children:`
-                        @keyframes slideUp {
-                            from { transform: translateY(100%); }
-                            to { transform: translateY(0); }
-                        }
-                    `})]})]})}function C(e){let t=e.toLowerCase();return t.includes(`행복`)||t.includes(`좋`)||t.includes(`즐`)||t.includes(`기뻐`)?`행복`:t.includes(`우울`)||t.includes(`슬퍼`)||t.includes(`눈물`)?`우울`:t.includes(`답답`)||t.includes(`짜증`)||t.includes(`화`)?`답답`:t.includes(`피곤`)||t.includes(`지쳐`)||t.includes(`힘들`)?`피곤`:`차분`}function te(){let[e,t]=(0,l.useState)(!1),[n,r]=(0,l.useState)([]);(0,l.useEffect)(()=>{let e=localStorage.getItem(`diaries`);e&&r(JSON.parse(e))},[]);let[i,a]=(0,l.useState)(new Date().toISOString().slice(0,10)),[o,s]=(0,l.useState)(``),[c,u]=(0,l.useState)(``),[d,p]=(0,l.useState)(``);return e?(0,f.jsxs)(`section`,{className:`h-full bg-[#f7f4ff] flex flex-col`,children:[(0,f.jsxs)(`div`,{className:`flex items-center justify-between px-6 pt-10`,children:[(0,f.jsx)(`button`,{onClick:()=>t(!1),className:`text-xl`,children:`←`}),(0,f.jsx)(`h1`,{className:`font-black text-xl text-[#6E31E8]`,children:`감정 일기`}),(0,f.jsx)(`button`,{onClick:()=>{if(!o||!d){alert(`감정과 일기를 입력해주세요 ☁️`);return}let e=[{id:Date.now(),date:i,mood:o,activity:c,content:d,detectedMood:C(`
-${o}
-${c}
-${d}
-`)},...n];r(e),localStorage.setItem(`diaries`,JSON.stringify(e)),a(new Date().toISOString().slice(0,10)),s(``),u(``),p(``),t(!1)},className:`\r
-              text-[#7B49FF]\r
-              font-black\r
-            `,children:`저장`})]}),(0,f.jsxs)(`div`,{className:`flex-1 overflow-y-auto px-6 pt-8 pb-32 space-y-6`,children:[(0,f.jsxs)(`div`,{children:[(0,f.jsx)(`p`,{className:`font-bold mb-2`,children:`날짜`}),(0,f.jsx)(`input`,{type:`date`,value:i,onChange:e=>a(e.target.value),className:`\r
-                w-full\r
-                h-14\r
-                rounded-3xl\r
-                px-5\r
-              `})]}),(0,f.jsxs)(`div`,{children:[(0,f.jsx)(`p`,{className:`font-bold mb-2`,children:`오늘 감정`}),(0,f.jsx)(`input`,{value:o,onChange:e=>s(e.target.value),placeholder:`예: 행복했어요`,className:`\r
-                w-full\r
-                h-14\r
-                rounded-3xl\r
-                px-5\r
-              `})]}),(0,f.jsxs)(`div`,{children:[(0,f.jsx)(`p`,{className:`font-bold mb-2`,children:`오늘 한 일`}),(0,f.jsx)(`input`,{value:c,onChange:e=>u(e.target.value),placeholder:`예: 친구 만나기`,className:`\r
-                w-full\r
-                h-14\r
-                rounded-3xl\r
-                px-5\r
-              `})]}),(0,f.jsxs)(`div`,{children:[(0,f.jsx)(`p`,{className:`font-bold mb-2`,children:`일기`}),(0,f.jsx)(`textarea`,{value:d,onChange:e=>p(e.target.value),placeholder:`오늘 하루를 적어주세요`,className:`\r
-                w-full\r
-                h-[260px]\r
-                rounded-[32px]\r
-                p-5\r
-                resize-none\r
-              `})]})]})]}):(0,f.jsxs)(`section`,{className:`\r
-        h-full\r
-        relative\r
-        bg-[#f7f4ff]\r
-      `,children:[(0,f.jsxs)(`div`,{className:`\r
-          overflow-y-auto\r
-          h-full\r
-          px-6\r
-          pt-12\r
-          pb-36\r
-        `,children:[(0,f.jsx)(`h1`,{className:`\r
-            text-[34px]\r
-            font-black\r
-            text-[#6E31E8]\r
-          `,children:`감정 일기`}),n.length===0?(0,f.jsxs)(`div`,{className:`\r
-              mt-40\r
-              text-center\r
-            `,children:[(0,f.jsx)(`div`,{className:`text-6xl`,children:`📖`}),(0,f.jsx)(`p`,{className:`\r
-                mt-6\r
-                text-purple-400\r
-              `,children:`아직 작성한 일기가 없어요`})]}):(0,f.jsx)(`div`,{className:`mt-8 space-y-4`,children:n.map(e=>(0,f.jsxs)(`div`,{className:`\r
-                  bg-white\r
-                  rounded-[32px]\r
-                  p-5\r
-                `,children:[(0,f.jsx)(`p`,{className:`text-sm text-gray-400`,children:e.date}),(0,f.jsx)(`h3`,{className:`mt-2 text-xl font-black`,children:e.mood}),(0,f.jsx)(`p`,{className:`mt-2`,children:e.activity}),(0,f.jsx)(`p`,{className:`mt-4 text-gray-500`,children:e.content})]},e.id))})]}),(0,f.jsx)(`button`,{onClick:()=>t(!0),className:`\r
-          absolute\r
-          bottom-[-10px]\r
-          right-6\r
-\r
-          w-16\r
-          h-16\r
-\r
-          rounded-full\r
-\r
-          bg-gradient-to-r\r
-          from-[#7B49FF]\r
-          to-[#B381FF]\r
-\r
-          text-white\r
-          text-4xl\r
-\r
-          shadow-xl\r
-        `,children:`+`})]})}function ne(){let[e,t]=(0,l.useState)(localStorage.getItem(`username`)||``),[n,r]=(0,l.useState)(!1),[i,a]=(0,l.useState)(e),[o,s]=(0,l.useState)(localStorage.getItem(`notify`)!==`false`);return(0,f.jsxs)(`div`,{className:`h-full overflow-y-auto px-6 pt-12 pb-32 bg-[#f7f4ff]`,children:[(0,f.jsx)(`h1`,{className:`text-[34px] font-black text-[#6E31E8]`,children:`설정`}),(0,f.jsx)(`p`,{className:`mt-2 text-purple-400`,children:`무디와의 시간을 나에게 맞게`}),(0,f.jsx)(`p`,{className:`mt-8 mb-3 text-sm font-black text-[#8668C8]`,children:`내 정보`}),(0,f.jsx)(`div`,{className:`bg-white rounded-[28px] p-5`,children:n?(0,f.jsxs)(`div`,{className:`flex gap-3`,children:[(0,f.jsx)(`input`,{value:i,onChange:e=>a(e.target.value),placeholder:`닉네임`,className:`flex-1 h-12 rounded-2xl px-4 bg-[#f7f4ff] outline-none`}),(0,f.jsx)(`button`,{onClick:()=>{if(!i.trim()){alert(`이름을 입력해주세요 ☁️`);return}localStorage.setItem(`username`,i),t(i),r(!1)},className:`px-5 rounded-2xl bg-[#7B49FF] text-white font-black`,children:`저장`})]}):(0,f.jsxs)(`button`,{onClick:()=>{a(e),r(!0)},className:`w-full flex items-center justify-between`,children:[(0,f.jsxs)(`div`,{className:`flex items-center gap-4`,children:[(0,f.jsx)(`div`,{className:`w-12 h-12 rounded-full bg-[#EEE6FF] flex items-center justify-center text-2xl`,children:`☁️`}),(0,f.jsxs)(`div`,{className:`text-left`,children:[(0,f.jsx)(`p`,{className:`font-black text-lg text-[#4D278C]`,children:e||`사용자`}),(0,f.jsx)(`p`,{className:`text-sm text-purple-400`,children:`닉네임 변경`})]})]}),(0,f.jsx)(`span`,{className:`text-purple-300 text-xl`,children:`›`})]})}),(0,f.jsx)(`p`,{className:`mt-8 mb-3 text-sm font-black text-[#8668C8]`,children:`알림`}),(0,f.jsx)(`div`,{className:`bg-white rounded-[28px] p-5`,children:(0,f.jsxs)(`div`,{className:`flex items-center justify-between`,children:[(0,f.jsxs)(`div`,{className:`flex items-center gap-4`,children:[(0,f.jsx)(`div`,{className:`w-12 h-12 rounded-full bg-[#EEE6FF] flex items-center justify-center text-2xl`,children:`🔔`}),(0,f.jsxs)(`div`,{children:[(0,f.jsx)(`p`,{className:`font-black text-lg text-[#4D278C]`,children:`감정 기록 알림`}),(0,f.jsx)(`p`,{className:`text-sm text-purple-400`,children:`오늘 기분을 잊지 않도록`})]})]}),(0,f.jsx)(`button`,{onClick:()=>{let e=!o;s(e),localStorage.setItem(`notify`,String(e))},className:`
-                            relative w-14 h-8 rounded-full transition
-                            ${o?`bg-[#7B49FF]`:`bg-[#D8DCE6]`}
-                        `,children:(0,f.jsx)(`div`,{className:`
-                                absolute top-1 w-6 h-6 rounded-full bg-white shadow transition-all
-                                ${o?`left-7`:`left-1`}
-                            `})})]})}),(0,f.jsx)(`p`,{className:`mt-8 mb-3 text-sm font-black text-[#8668C8]`,children:`데이터`}),(0,f.jsxs)(`button`,{onClick:()=>{confirm(`모든 기록이 사라져요. 정말 초기화할까요?`)&&(localStorage.clear(),location.reload())},className:`w-full bg-white rounded-[28px] p-5 flex items-center justify-between`,children:[(0,f.jsxs)(`div`,{className:`flex items-center gap-4`,children:[(0,f.jsx)(`div`,{className:`w-12 h-12 rounded-full bg-[#FFE6E6] flex items-center justify-center text-2xl`,children:`🗑️`}),(0,f.jsxs)(`div`,{className:`text-left`,children:[(0,f.jsx)(`p`,{className:`font-black text-lg text-[#E04444]`,children:`전체 데이터 초기화`}),(0,f.jsx)(`p`,{className:`text-sm text-purple-400`,children:`모든 기록과 설정 삭제`})]})]}),(0,f.jsx)(`span`,{className:`text-purple-300 text-xl`,children:`›`})]}),(0,f.jsx)(`p`,{className:`mt-8 mb-3 text-sm font-black text-[#8668C8]`,children:`앱 정보`}),(0,f.jsxs)(`div`,{className:`bg-white rounded-[28px] p-5 text-center`,children:[(0,f.jsx)(`p`,{className:`text-2xl font-black text-[#6E31E8]`,children:`MOODMAP`}),(0,f.jsx)(`p`,{className:`mt-1 text-sm text-purple-400`,children:`v1.0.0`})]})]})}function re(){let e=JSON.parse(localStorage.getItem(`moodLogs`)||`[]`),t=new Date,n=e.filter(e=>{let n=new Date(e.createdAt);return n.getMonth()===t.getMonth()&&n.getFullYear()===t.getFullYear()}),r={},i={};n.forEach(e=>{r[e.mood]=(r[e.mood]||0)+1,i[e.place]=(i[e.place]||0)+1});let a=Object.fromEntries(y.mood.options.map(e=>[e.label,e.emoji])),o=Object.fromEntries(y.place.options.map(e=>typeof e==`string`?[e,`📍`]:[e.label,e.emoji||`📍`]));return(0,f.jsx)(`div`,{className:`px-6 pb-10`,children:(0,f.jsxs)(`div`,{className:`rounded-[36px] bg-white p-8 shadow`,children:[(0,f.jsx)(`h2`,{className:`text-2xl font-black text-[#6E31E8]`,children:`이번 달 리포트`}),(0,f.jsx)(`p`,{className:`mt-6 text-xl font-black text-[#8668C8]`,children:`감정 기록`}),(0,f.jsx)(`div`,{className:`mt-5 flex gap-3 overflow-x-auto pb-2`,children:Object.entries(r).sort((e,t)=>t[1]-e[1]).map(([e,t])=>(0,f.jsxs)(`div`,{className:`flex-shrink-0 w-[72px] h-[96px] rounded-[20px] bg-[#F7F4FF] flex flex-col justify-center items-center px-1`,children:[(0,f.jsx)(`div`,{className:`text-3xl`,children:a[e]||`☁️`}),(0,f.jsx)(`div`,{className:`mt-1 text-[16px] leading-none font-black text-[#6E31E8]`,children:e}),(0,f.jsxs)(`div`,{className:`mt-1 text-[12px] text-purple-400`,children:[t,`회`]})]},e))}),(0,f.jsx)(`p`,{className:`mt-4 text-xl font-black text-[#8668C8]`,children:`장소 기록`}),(0,f.jsx)(`div`,{className:`mt-5 flex gap-2 overflow-x-auto pb-2 pr-6`,children:Object.entries(i).sort((e,t)=>t[1]-e[1]).map(([e,t])=>(0,f.jsxs)(`div`,{className:`flex-shrink-0 w-[72px] h-[96px] rounded-[20px] bg-[#F7F4FF] flex flex-col justify-center items-center px-1`,children:[(0,f.jsx)(`div`,{className:`text-3xl`,children:o[e]||`📍`}),(0,f.jsx)(`div`,{className:`mt-1 text-[16px] leading-none font-black text-[#6E31E8]`,children:e}),(0,f.jsxs)(`div`,{className:`mt-1 text-[12px] text-purple-400`,children:[t,`회`]})]},e))})]})})}var w={행복해요:{emoji:`🍝`,name:`분위기 좋은 맛집`,desc:`행복한 날엔 맛있는 음식과 함께!`},설레요:{emoji:`🛍️`,name:`성수 팝업스토어`,desc:`설레는 마음에 트렌디한 공간 어때요?`},신나요:{emoji:`🍷`,name:`분위기 바`,desc:`신나는 에너지를 이어가요!`},차분해요:{emoji:`☕`,name:`조용한 카페`,desc:`차분한 오늘, 커피 한 잔의 여유`},피곤해요:{emoji:`🌿`,name:`공원 산책로`,desc:`자연 속에서 에너지를 충전해요`},복잡해요:{emoji:`📚`,name:`독립서점`,desc:`책 사이에서 마음을 정리해봐요`},우울해요:{emoji:`🎨`,name:`전시회`,desc:`예술이 위로가 되어줄 거예요`},슬퍼요:{emoji:`☕`,name:`햇빛 좋은 카페`,desc:`따뜻한 빛이 마음을 녹여줄 거예요`},답답해요:{emoji:`🌊`,name:`전망 좋은 곳`,desc:`탁 트인 곳에서 숨 쉬어봐요`},멍해요:{emoji:`🚶`,name:`산책로`,desc:`걸으면 머리가 맑아져요`},화나요:{emoji:`🍃`,name:`공원`,desc:`바람이 마음을 식혀줄 거예요`},외로워요:{emoji:`☕`,name:`동네 카페`,desc:`따뜻한 공간에서 위로 받아요`}};function ie({name:e,tab:t,setTab:n,mood:r,setMood:i,place:a,setPlace:o,homeStep:s,setHomeStep:c,spots:l,setSpots:u}){let d=JSON.parse(localStorage.getItem(`moodLogs`)||`[]`),p=new Date,m=p.toISOString().slice(0,10),h=d.filter(e=>{let t=new Date(e.createdAt);return t.getMonth()===p.getMonth()&&t.getFullYear()===p.getFullYear()}),g=d.find(e=>e.createdAt?.slice(0,10)===m),_=Object.fromEntries(y.mood.options.map(e=>[e.label,e.emoji])),ee=Object.fromEntries(y.mood.options.map(e=>[e.label,e.color])),C={};h.forEach(e=>{C[e.mood]=(C[e.mood]||0)+1});let ie=h.length,ae=Object.entries(C).sort((e,t)=>t[1]-e[1])[0],oe=(()=>{let e=[],t=p.getDay(),n=t===0?-6:1-t;for(let t=0;t<7;t++){let r=new Date(p);r.setDate(p.getDate()+n+t),e.push(r)}return e})(),se=[`월`,`화`,`수`,`목`,`금`,`토`,`일`],ce={};d.forEach(e=>{let t=e.createdAt?.slice(0,10);t&&(ce[t]=e.mood)});let le=w[g?.mood||r||``]||w.차분해요;return(0,f.jsxs)(`section`,{className:`h-full bg-[#f7f4ff] relative`,children:[(0,f.jsxs)(`div`,{className:`h-full pb-32`,children:[t===`home`&&(s<2?(0,f.jsx)(b,{name:e,mood:r,setMood:i,place:a,setPlace:o,homeStep:s,setHomeStep:c,setSpots:u}):(0,f.jsxs)(`div`,{className:`h-full overflow-y-auto pb-32`,children:[(0,f.jsx)(`div`,{className:`px-6 pt-12`,children:(0,f.jsxs)(`div`,{className:`flex items-center justify-between`,children:[(0,f.jsxs)(`div`,{children:[(0,f.jsxs)(`h1`,{className:`text-[38px] font-black text-[#6E31E8]`,children:[e||`사용자`,`님`]}),(0,f.jsx)(`p`,{className:`mt-1 text-purple-400`,children:`오늘도 무디와 함께해요 ☁️`})]}),(0,f.jsx)(`img`,{src:`./moodie.png`,className:`w-16 drop-shadow-lg`})]})}),(0,f.jsx)(`div`,{className:`px-6 mt-6`,children:g?(0,f.jsxs)(`div`,{className:`rounded-[28px] p-6 shadow-sm`,style:{background:`linear-gradient(135deg, ${ee[g.mood]||`#EEE6FF`}33, #ffffff)`},children:[(0,f.jsx)(`p`,{className:`text-sm font-bold text-purple-400`,children:`오늘의 기분`}),(0,f.jsxs)(`div`,{className:`flex items-center gap-4 mt-3`,children:[(0,f.jsx)(`div`,{className:`text-5xl`,children:_[g.mood]||`☁️`}),(0,f.jsxs)(`div`,{children:[(0,f.jsx)(`h3`,{className:`text-2xl font-black text-[#4D278C]`,children:g.mood}),(0,f.jsx)(`p`,{className:`text-sm text-purple-400 mt-1`,children:g.place&&`📍 ${g.place}에서`})]})]})]}):(0,f.jsxs)(`button`,{onClick:()=>{c(0),i(``),o(``)},className:`w-full rounded-[28px] bg-white p-6 shadow-sm text-left`,children:[(0,f.jsx)(`p`,{className:`text-sm font-bold text-purple-400`,children:`오늘의 기분`}),(0,f.jsxs)(`div`,{className:`flex items-center gap-4 mt-3`,children:[(0,f.jsx)(`div`,{className:`text-5xl`,children:`☁️`}),(0,f.jsxs)(`div`,{children:[(0,f.jsx)(`h3`,{className:`text-lg font-black text-[#4D278C]`,children:`아직 기록하지 않았어요`}),(0,f.jsx)(`p`,{className:`text-sm text-[#7B49FF] font-bold mt-1`,children:`지금 기분 기록하기 →`})]})]})]})}),(0,f.jsx)(`div`,{className:`px-6 mt-6`,children:(0,f.jsxs)(`div`,{className:`rounded-[28px] bg-gradient-to-br from-[#2E005A] to-[#3E0077] p-6 shadow`,children:[(0,f.jsxs)(`div`,{className:`flex items-center justify-between`,children:[(0,f.jsx)(`h2`,{className:`text-lg font-black text-white`,children:`이번 주 감정 기록 🌷`}),(0,f.jsxs)(`p`,{className:`text-xs text-purple-300`,children:[p.getMonth()+1,`월`]})]}),(0,f.jsx)(`div`,{className:`mt-5 flex justify-between`,children:oe.map((e,t)=>{let n=e.toISOString().slice(0,10),r=n===m,i=ce[n];return(0,f.jsxs)(`div`,{className:`flex flex-col items-center gap-2`,children:[(0,f.jsx)(`p`,{className:`text-xs ${r?`text-white font-black`:`text-purple-300`}`,children:se[t]}),(0,f.jsx)(`div`,{className:`
-                                                            w-11 h-11 rounded-full
-                                                            flex items-center justify-center text-xl
-                                                            ${r?`bg-[#7B49FF] ring-2 ring-white/50`:i?`bg-purple-500/50`:`bg-white/10`}
-                                                        `,children:i?_[i]||`☁️`:``}),(0,f.jsx)(`p`,{className:`text-xs ${r?`text-white font-bold`:`text-purple-400`}`,children:e.getDate()})]},t)})}),Object.keys(C).length>0&&(0,f.jsx)(`div`,{className:`mt-5 flex gap-2 flex-wrap`,children:Object.entries(C).sort((e,t)=>t[1]-e[1]).slice(0,4).map(([e,t])=>(0,f.jsxs)(`div`,{className:`px-3 py-1.5 rounded-full bg-white/10 text-xs text-white font-bold`,children:[_[e],` `,e,` `,t]},e))})]})}),(0,f.jsx)(`div`,{className:`px-6 mt-6`,children:(0,f.jsxs)(`div`,{className:`rounded-[28px] bg-white p-6 shadow-sm`,children:[(0,f.jsxs)(`div`,{className:`flex items-center gap-3`,children:[(0,f.jsx)(`div`,{className:`w-12 h-12 rounded-2xl bg-[#FFF3D6] flex items-center justify-center text-2xl`,children:`⭐`}),(0,f.jsx)(`div`,{children:(0,f.jsx)(`h2`,{className:`text-sm font-black text-[#8668C8]`,children:`무디의 칭찬 리포트`})})]}),(0,f.jsx)(`div`,{className:`mt-4 bg-[#F7F4FF] rounded-2xl p-4`,children:(0,f.jsx)(`p`,{className:`text-[#4D278C] font-bold leading-relaxed`,children:(()=>{if(ie===0)return`아직 기록이 없어요. 오늘 첫 기록을 남겨볼까요? ☁️`;if(ie<3)return`벌써 ${ie}번이나 기록했어요! 좋은 시작이야 ✨`;let e=ae?ae[0]:``,t=ae?ae[1]:0;return[`행복해요`,`설레요`,`신나요`].includes(e)?`이번 달 ${e}가 ${t}번! 좋은 흐름이 이어지고 있어요 ☀️`:[`우울해요`,`슬퍼요`,`외로워요`].includes(e)?`${ie}번 기록하면서 잘 버텨왔어요. 무디가 항상 곁에 있을게요 🌙`:`이번 달 ${ie}번 기록! 꾸준히 감정을 돌보는 당신이 멋져요 🌿`})()})}),ie>0&&(0,f.jsxs)(`div`,{className:`mt-4 flex gap-4`,children:[(0,f.jsxs)(`div`,{className:`flex-1 bg-[#F7F4FF] rounded-2xl p-4 text-center`,children:[(0,f.jsxs)(`p`,{className:`text-2xl font-black text-[#6E31E8]`,children:[ie,`회`]}),(0,f.jsx)(`p`,{className:`text-xs text-purple-400 mt-1`,children:`이번 달 기록`})]}),(0,f.jsxs)(`div`,{className:`flex-1 bg-[#F7F4FF] rounded-2xl p-4 text-center`,children:[(0,f.jsx)(`p`,{className:`text-2xl font-black text-[#6E31E8]`,children:ae?`${_[ae[0]]||`☁️`}`:`—`}),(0,f.jsx)(`p`,{className:`text-xs text-purple-400 mt-1`,children:ae?ae[0]:`가장 많은 감정`})]})]})]})}),(0,f.jsx)(`div`,{className:`px-6 mt-6`,children:(0,f.jsxs)(`button`,{onClick:()=>n(`chat`),className:`w-full rounded-[28px] bg-gradient-to-r from-[#7B49FF] to-[#B381FF] p-6 shadow-lg text-left`,children:[(0,f.jsx)(`p`,{className:`text-xs font-bold text-purple-200`,children:`오늘의 무드 스팟`}),(0,f.jsxs)(`div`,{className:`flex items-center gap-4 mt-3`,children:[(0,f.jsx)(`div`,{className:`w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center text-3xl`,children:le.emoji}),(0,f.jsxs)(`div`,{children:[(0,f.jsx)(`h3`,{className:`text-xl font-black text-white`,children:le.name}),(0,f.jsx)(`p`,{className:`text-sm text-purple-100 mt-1`,children:le.desc})]})]}),(0,f.jsx)(`p`,{className:`text-xs text-white/70 mt-4 text-right font-bold`,children:`무디에게 더 추천받기 →`})]})}),(0,f.jsx)(`div`,{className:`mt-6`,children:(0,f.jsx)(re,{})})]})),t===`map`&&(0,f.jsx)(x,{spots:l}),t===`chat`&&(0,f.jsx)(S,{}),t===`diary`&&(0,f.jsx)(te,{}),t===`settings`&&(0,f.jsx)(ne,{})]}),(0,f.jsx)(v,{tab:t,setTab:n})]})}function ae(){let[e,t]=(0,l.useState)(-1),[n,r]=(0,l.useState)(``),[i,a]=(0,l.useState)(`home`),[o,s]=(0,l.useState)(``),[c,u]=(0,l.useState)(``),[d,g]=(0,l.useState)(0),[v,y]=(0,l.useState)(localStorage.getItem(`username`)||``),[b,x]=(0,l.useState)([]),[ee,S]=(0,l.useState)([]),C=e=>{b.includes(e)?x(b.filter(t=>t!==e)):x([...b,e])};return(0,l.useEffect)(()=>{let e=localStorage.getItem(`username`);e?(y(e),r(`home`)):r(`onboarding`)},[]),(0,f.jsx)(`main`,{className:`flex min-h-screen items-center justify-center bg-gradient-to-br from-[#f5edff] to-[#e9ddff] p-4`,children:(0,f.jsxs)(`div`,{className:`relative h-[844px] w-[390px] overflow-hidden rounded-[40px] border border-white bg-white/40 shadow-2xl backdrop-blur-2xl`,children:[n===`onboarding`&&(0,f.jsxs)(f.Fragment,{children:[(0,f.jsxs)(`div`,{className:`h-full overflow-y-auto p-6 pb-[180px]`,children:[(0,f.jsxs)(`div`,{className:`mb-10 flex items-center justify-between`,children:[(0,f.jsxs)(`div`,{className:`flex items-center gap-4`,children:[e>=0&&(0,f.jsx)(`button`,{onClick:()=>t(e-1),className:`flex h-10 w-10 items-center justify-center rounded-full bg-white shadow`,children:`←`}),(0,f.jsx)(`h1`,{className:`text-2xl font-black text-purple-700`,children:`MOODMAP`})]}),e===-1?(0,f.jsx)(`button`,{onClick:()=>{r(`home`)},className:`text-purple-400 font-medium`,children:`건너뛰기`}):(0,f.jsxs)(`p`,{className:`text-purple-400`,children:[e,`/`,h.length]})]}),e===-1&&(0,f.jsxs)(`div`,{className:`text-center`,children:[(0,f.jsx)(`img`,{src:`./moodie.png`,className:`mx-auto w-56`,alt:`Moodie`}),(0,f.jsxs)(`h2`,{className:`mt-8 text-4xl font-black text-purple-700`,children:[`나에게 딱 맞는`,(0,f.jsx)(`br`,{}),`공간을 찾아볼까요?`]})]}),e===0&&(0,f.jsxs)(f.Fragment,{children:[(0,f.jsx)(m,{step:1}),(0,f.jsxs)(`h2`,{className:`text-4xl font-black mt-6 text-[#33215f]`,children:[`어떻게`,(0,f.jsx)(`br`,{}),`불러드릴까요?`]}),(0,f.jsx)(`p`,{className:`mt-4 text-purple-400`,children:`이름 또는 닉네임 입력`}),(0,f.jsx)(`input`,{value:v,onChange:e=>y(e.target.value),placeholder:`예: 무디`,className:`mt-10 w-full h-16 rounded-full px-8 text-xl outline-none bg-white shadow-sm`})]}),e>0&&e<=h.length&&(0,f.jsxs)(f.Fragment,{children:[(0,f.jsx)(m,{step:e}),(0,f.jsx)(`h2`,{className:`text-4xl font-black mt-6`,children:h[e-1].title}),(0,f.jsx)(`p`,{className:`mt-3 text-purple-400`,children:`복수 선택 가능`}),(0,f.jsx)(`div`,{className:`grid grid-cols-2 gap-4 mt-10`,children:h[e-1].options.map(e=>(0,f.jsx)(p,{label:e,selected:b.includes(e),onClick:()=>C(e)},e))})]})]}),(0,f.jsx)(`div`,{className:`absolute bottom-8 left-6 right-6 z-50`,children:(0,f.jsx)(`button`,{onClick:()=>{if(e===0&&!v.trim()){alert(`이름을 입력해주세요 ☁️`);return}e===0&&localStorage.setItem(`username`,v),e<h.length?t(e+1):r(`permission`)},className:`h-[68px] w-full rounded-full bg-gradient-to-r from-[#7B49FF] to-[#B381FF] font-bold text-white text-xl font-bold shadow-xl`,children:`다음`})})]}),n===`permission`&&(0,f.jsx)(_,{onFinish:()=>r(`home`)}),n===`home`&&(0,f.jsx)(f.Fragment,{children:(0,f.jsx)(ie,{name:v,tab:i,setTab:a,mood:o,setMood:s,place:c,setPlace:u,homeStep:d,setHomeStep:g,spots:ee,setSpots:S})})]})})}(0,u.createRoot)(document.getElementById(`root`)).render((0,f.jsx)(l.StrictMode,{children:(0,f.jsx)(ae,{})}));
+text-5xl
+`,children:`⚙️`})}function re(){let e=JSON.parse(localStorage.getItem(`moodLogs`)||`[]`),t=new Date,n=e.filter(e=>{let n=new Date(e.createdAt);return n.getMonth()===t.getMonth()&&n.getFullYear()===t.getFullYear()}),r={},i={};n.forEach(e=>{r[e.mood]=(r[e.mood]||0)+1,i[e.place]=(i[e.place]||0)+1});let a=Object.fromEntries(y.mood.options.map(e=>[e.label,e.emoji])),o=Object.fromEntries(y.place.options.map(e=>typeof e==`string`?[e,`📍`]:[e.label,e.emoji||`📍`]));return(0,f.jsx)(`div`,{className:`px-6 pb-10`,children:(0,f.jsxs)(`div`,{className:`rounded-[36px] bg-white p-8 shadow`,children:[(0,f.jsx)(`h2`,{className:`text-2xl font-black text-[#6E31E8]`,children:`이번 달 리포트`}),(0,f.jsx)(`p`,{className:`mt-6 text-xl font-black text-[#8668C8]`,children:`감정 기록`}),(0,f.jsx)(`div`,{className:`mt-5 flex gap-3 overflow-x-auto pb-2`,children:Object.entries(r).sort((e,t)=>t[1]-e[1]).map(([e,t])=>(0,f.jsxs)(`div`,{className:`flex-shrink-0 w-[72px] h-[96px] rounded-[20px] bg-[#F7F4FF] flex flex-col justify-center items-center px-1`,children:[(0,f.jsx)(`div`,{className:`text-3xl`,children:a[e]||`☁️`}),(0,f.jsx)(`div`,{className:`mt-1 text-[16px] leading-none font-black text-[#6E31E8]`,children:e}),(0,f.jsxs)(`div`,{className:`mt-1 text-[12px] text-purple-400`,children:[t,`회`]})]},e))}),(0,f.jsx)(`p`,{className:`mt-4 text-xl font-black text-[#8668C8]`,children:`장소 기록`}),(0,f.jsx)(`div`,{className:`mt-5 flex gap-2 overflow-x-auto pb-2 pr-6`,children:Object.entries(i).sort((e,t)=>t[1]-e[1]).map(([e,t])=>(0,f.jsxs)(`div`,{className:`flex-shrink-0 w-[72px] h-[96px] rounded-[20px] bg-[#F7F4FF] flex flex-col justify-center items-center px-1`,children:[(0,f.jsx)(`div`,{className:`text-3xl`,children:o[e]||`📍`}),(0,f.jsx)(`div`,{className:`mt-1 text-[16px] leading-none font-black text-[#6E31E8]`,children:e}),(0,f.jsxs)(`div`,{className:`mt-1 text-[12px] text-purple-400`,children:[t,`회`]})]},e))})]})})}function w({name:e,tab:t,setTab:n,mood:r,setMood:i,place:a,setPlace:o,homeStep:s,setHomeStep:c,spots:u,setSpots:d,location:p,setLocation:m}){return(0,l.useEffect)(()=>{navigator.geolocation.getCurrentPosition(e=>{m({lat:e.coords.latitude,lng:e.coords.longitude})},e=>{console.log(e)})},[]),(0,f.jsxs)(`section`,{className:`h-full bg-[#f7f4ff] relative`,children:[(0,f.jsxs)(`div`,{className:`h-full pb-32`,children:[t===`home`&&(s<2?(0,f.jsx)(b,{name:e,mood:r,setMood:i,place:a,setPlace:o,homeStep:s,setHomeStep:c,setSpots:d,location:p}):(0,f.jsxs)(`div`,{className:`h-full overflow-y-auto pb-32`,children:[(0,f.jsxs)(`div`,{className:`px-6 pt-12`,children:[(0,f.jsxs)(`h1`,{className:`text-[42px] font-black text-[#6E31E8]`,children:[e||`사용자`,`님`]}),(0,f.jsx)(`p`,{className:`mt-2 pb-4 text-purple-400`,children:`오늘도 무디와 함께해요`})]}),(0,f.jsx)(re,{})]})),t===`map`&&(0,f.jsx)(x,{spots:u}),t===`chat`&&(0,f.jsx)(S,{}),t===`diary`&&(0,f.jsx)(te,{}),t===`settings`&&(0,f.jsx)(ne,{})]}),(0,f.jsx)(v,{tab:t,setTab:n})]})}function ie(){let[e,t]=(0,l.useState)(-1),[n,r]=(0,l.useState)(``),[i,a]=(0,l.useState)(`home`),[o,s]=(0,l.useState)(``),[c,u]=(0,l.useState)(``),[d,g]=(0,l.useState)(0),[v,y]=(0,l.useState)(localStorage.getItem(`username`)||``),[b,x]=(0,l.useState)({lat:0,lng:0}),[ee,S]=(0,l.useState)([]),[C,te]=(0,l.useState)([]),ne=e=>{ee.includes(e)?S(ee.filter(t=>t!==e)):S([...ee,e])};return(0,l.useEffect)(()=>{let e=localStorage.getItem(`username`);e?(y(e),r(`home`)):r(`onboarding`)},[]),(0,f.jsx)(`main`,{className:`flex min-h-screen items-center justify-center bg-gradient-to-br from-[#f5edff] to-[#e9ddff] p-4`,children:(0,f.jsxs)(`div`,{className:`relative h-[844px] w-[390px] overflow-hidden rounded-[40px] border border-white bg-white/40 shadow-2xl backdrop-blur-2xl`,children:[n===`onboarding`&&(0,f.jsxs)(f.Fragment,{children:[(0,f.jsxs)(`div`,{className:`h-full overflow-y-auto p-6 pb-[180px]`,children:[(0,f.jsxs)(`div`,{className:`mb-10 flex items-center justify-between`,children:[(0,f.jsxs)(`div`,{className:`flex items-center gap-4`,children:[e>=0&&(0,f.jsx)(`button`,{onClick:()=>t(e-1),className:`flex h-10 w-10 items-center justify-center rounded-full bg-white shadow`,children:`←`}),(0,f.jsx)(`h1`,{className:`text-2xl font-black text-purple-700`,children:`MOODMAP`})]}),e===-1?(0,f.jsx)(`button`,{onClick:()=>{r(`home`)},className:`text-purple-400 font-medium`,children:`건너뛰기`}):(0,f.jsxs)(`p`,{className:`text-purple-400`,children:[e,`/`,h.length]})]}),e===-1&&(0,f.jsxs)(`div`,{className:`text-center`,children:[(0,f.jsx)(`img`,{src:`./moodie.png`,className:`mx-auto w-56`,alt:`Moodie`}),(0,f.jsxs)(`h2`,{className:`mt-8 text-4xl font-black text-purple-700`,children:[`나에게 딱 맞는`,(0,f.jsx)(`br`,{}),`공간을 찾아볼까요?`]})]}),e===0&&(0,f.jsxs)(f.Fragment,{children:[(0,f.jsx)(m,{step:1}),(0,f.jsxs)(`h2`,{className:`text-4xl font-black mt-6 text-[#33215f]`,children:[`어떻게`,(0,f.jsx)(`br`,{}),`불러드릴까요?`]}),(0,f.jsx)(`p`,{className:`mt-4 text-purple-400`,children:`이름 또는 닉네임 입력`}),(0,f.jsx)(`input`,{value:v,onChange:e=>y(e.target.value),placeholder:`예: 무디`,className:`mt-10 w-full h-16 rounded-full px-8 text-xl outline-none bg-white shadow-sm`})]}),e>0&&e<=h.length&&(0,f.jsxs)(f.Fragment,{children:[(0,f.jsx)(m,{step:e}),(0,f.jsx)(`h2`,{className:`text-4xl font-black mt-6`,children:h[e-1].title}),(0,f.jsx)(`p`,{className:`mt-3 text-purple-400`,children:`복수 선택 가능`}),(0,f.jsx)(`div`,{className:`grid grid-cols-2 gap-4 mt-10`,children:h[e-1].options.map(e=>(0,f.jsx)(p,{label:e,selected:ee.includes(e),onClick:()=>ne(e)},e))})]})]}),(0,f.jsx)(`div`,{className:`absolute bottom-8 left-6 right-6 z-50`,children:(0,f.jsx)(`button`,{onClick:()=>{if(e===0&&!v.trim()){alert(`이름을 입력해주세요 ☁️`);return}e===0&&localStorage.setItem(`username`,v),e<h.length?t(e+1):r(`permission`)},className:`h-[68px] w-full rounded-full bg-gradient-to-r from-[#7B49FF] to-[#B381FF] font-bold text-white text-xl font-bold shadow-xl`,children:`다음`})})]}),n===`permission`&&(0,f.jsx)(_,{onFinish:()=>r(`home`),setLocation:x}),n===`home`&&(0,f.jsx)(f.Fragment,{children:(0,f.jsx)(w,{name:v,tab:i,setTab:a,mood:o,setMood:s,place:c,setPlace:u,homeStep:d,setHomeStep:g,spots:C,setSpots:te,location:b,setLocation:x})})]})})}(0,u.createRoot)(document.getElementById(`root`)).render((0,f.jsx)(l.StrictMode,{children:(0,f.jsx)(ie,{})}));
