@@ -1,6 +1,6 @@
 export const homeQuestions = {
     mood: {
-        title: "오늘 당신의 마음은 어떤 색인가요?",
+        title: "오늘 당신의 마음은 어떤가요?",
         options: [
             { emoji: "😊", label: "행복해요", color: "#F9D949" },
             { emoji: "😍", label: "설레요", color: "#F6C5D0" },

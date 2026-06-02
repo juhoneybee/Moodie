@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MOODMAP - 감정으로 찾는 나만의 공간</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --bg: #F5F0FF;
+  --white: #FFFFFF;
+  --purple-900: #1A0038;
+  --purple-700: #6E31E8;
+  --purple-500: #7B49FF;
+  --purple-400: #9B7EEB;
+  --purple-300: #B9A3F0;
+  --purple-100: #EDE6FF;
+  --purple-50: #F7F4FF;
+  --text-dark: #2D1654;
+  --text-sub: #8668C8;
+  --accent: #B381FF;
+  --gradient: linear-gradient(135deg, #7B49FF, #B381FF);
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: var(--bg);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+/* ===== NAV ===== */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(245, 240, 255, 0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(123, 73, 255, 0.08);
+}
+
+.nav-logo {
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--purple-700);
+  letter-spacing: -0.5px;
+}
+
+.nav-logo span {
+  color: var(--purple-400);
+  font-weight: 700;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-sub);
+  font-weight: 700;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--purple-700);
+}
+
+.nav-cta {
+  background: var(--gradient);
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-weight: 900;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.nav-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(123, 73, 255, 0.3);
+}
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 20px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(123, 73, 255, 0.12) 0%, transparent 70%);
+  top: 10%; left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--white);
+  border: 1px solid var(--purple-100);
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--purple-500);
+  margin-bottom: 32px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.2s forwards;
+}
+
+.hero-moodie {
+  width: 220px;
+  filter: drop-shadow(0 20px 60px rgba(123, 73, 255, 0.2));
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: floatIn 1s 0.4s forwards;
+}
+
+.hero h1 {
+  font-size: 52px;
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: -2px;
+  color: var(--text-dark);
+  opacity: 0;
+  animation: fadeUp 0.8s 0.6s forwards;
+}
+
+.hero h1 .highlight {
+  color: var(--purple-700);
+  position: relative;
+}
+
+.hero h1 .highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 2px; left: 0; right: 0;
+  height: 12px;
+  background: rgba(123, 73, 255, 0.15);
+  border-radius: 4px;
+  z-index: -1;
+}
+
+.hero-sub {
+  font-size: 18px;
+  color: var(--text-sub);
+  margin-top: 20px;
+  line-height: 1.7;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.8s forwards;
+}
+
+.hero-search {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  background: var(--white);
+  border-radius: 60px;
+  padding: 6px 6px 6px 28px;
+  box-shadow: 0 4px 40px rgba(123, 73, 255, 0.1);
+  border: 2px solid var(--purple-100);
+  width: 480px;
+  max-width: 90vw;
+  opacity: 0;
+  animation: fadeUp 0.8s 1s forwards;
+  transition: border-color 0.3s;
+}
+
+.hero-search:focus-within {
+  border-color: var(--purple-500);
+}
+
+.hero-search input {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 15px;
+  font-family: 'Noto Sans KR', sans-serif;
+  color: var(--text-dark);
+  background: transparent;
+}
+
+.hero-search input::placeholder {
+  color: var(--purple-300);
+}
+
+.hero-search button {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: var(--gradient);
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s;
+}
+
+.hero-search button:hover {
+  transform: scale(1.1);
+}
+
+/* ===== SECTION: 소개 ===== */
+.intro {
+  padding: 120px 20px;
+  text-align: center;
+}
+
+.intro-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.intro-moodie {
+  width: 280px;
+  margin: 0 auto;
+  filter: drop-shadow(0 16px 40px rgba(123, 73, 255, 0.15));
+}
+
+.intro-text {
+  margin-top: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.intro-text span {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--text-dark);
+}
+
+.intro-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--gradient);
+  color: white;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+/* ===== SECTION: STEPS ===== */
+.steps {
+  padding: 100px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.steps-title {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 900;
+  color: var(--purple-500);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.steps-heading {
+  text-align: center;
+  font-size: 38px;
+  font-weight: 900;
+  color: var(--text-dark);
+  margin-bottom: 64px;
+  letter-spacing: -1px;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.step-card {
+  background: var(--white);
+  border-radius: 28px;
+  padding: 36px 24px;
+  text-align: center;
+  border: 1px solid var(--purple-100);
+  transition: transform 0.4s, box-shadow 0.4s;
+  position: relative;
+  overflow: hidden;
+}
+
+.step-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--gradient);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.step-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(123, 73, 255, 0.12);
+}
+
+.step-card:hover::before {
+  opacity: 1;
+}
+
+.step-badge {
+  display: inline-block;
+  background: var(--purple-100);
+  color: var(--purple-700);
+  font-size: 12px;
+  font-weight: 900;
+  padding: 6px 16px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+}
+
+.step-emoji {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.step-card h3 {
+  font-size: 17px;
+  font-weight: 900;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.step-card p {
+  font-size: 13px;
+  color: var(--text-sub);
+  line-height: 1.7;
+}
+
+.step-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 16px;
+  font-size: 13px;
+  font-weight: 900;
+  color: var(--purple-500);
+  text-decoration: none;
+}
+
+/* ===== SECTION: 기능 ===== */
+.features {
+  padding: 100px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.feature-row {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  margin-bottom: 100px;
+}
+
+.feature-row.reverse {
+  flex-direction: row-reverse;
+}
+
+.feature-visual {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.feature-phone {
+  width: 260px;
+  height: 520px;
+  background: var(--white);
+  border-radius: 40px;
+  border: 3px solid var(--purple-100);
+  box-shadow: 0 20px 80px rgba(123, 73, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 30px;
+}
+
+.feature-phone .phone-emoji {
+  font-size: 64px;
+}
+
+.feature-phone .phone-title {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--purple-700);
+}
+
+.feature-phone .phone-desc {
+  font-size: 13px;
+  color: var(--text-sub);
+  text-align: center;
+  line-height: 1.6;
+}
+
+.feature-content {
+  flex: 1;
+}
+
+.feature-tag {
+  display: inline-flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.feature-tag span {
+  background: var(--purple-100);
+  color: var(--purple-700);
+  font-size: 12px;
+  font-weight: 900;
+  padding: 6px 14px;
+  border-radius: 50px;
+}
+
+.feature-content h2 {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--text-dark);
+  line-height: 1.3;
+  letter-spacing: -1px;
+}
+
+.feature-content p {
+  font-size: 15px;
+  color: var(--text-sub);
+  line-height: 1.8;
+  margin-top: 16px;
+}
+
+.feature-highlights {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.feature-highlights li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.feature-highlights .check {
+  width: 24px; height: 24px;
+  background: var(--purple-100);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: var(--purple-700);
+  flex-shrink: 0;
+}
+
+.feature-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 24px;
+  padding: 12px 28px;
+  background: var(--white);
+  border: 2px solid var(--purple-100);
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 900;
+  color: var(--purple-700);
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.feature-cta:hover {
+  background: var(--purple-700);
+  color: white;
+  border-color: var(--purple-700);
+}
+
+/* ===== FOOTER CTA ===== */
+.footer-cta {
+  background: var(--purple-900);
+  padding: 120px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-cta::before {
+  content: '';
+  position: absolute;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(123, 73, 255, 0.3) 0%, transparent 70%);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.footer-cta p {
+  font-size: 18px;
+  color: var(--purple-300);
+  position: relative;
+  z-index: 1;
+  line-height: 1.6;
+}
+
+.footer-cta p strong {
+  color: var(--accent);
+}
+
+.footer-cta h2 {
+  font-size: 28px;
+  font-weight: 900;
+  color: white;
+  margin-top: 8px;
+  letter-spacing: -0.5px;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-moodie {
+  width: 200px;
+  margin: 40px auto;
+  filter: drop-shadow(0 20px 60px rgba(179, 129, 255, 0.4));
+  position: relative;
+  z-index: 1;
+}
+
+.footer-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 40px;
+  background: var(--gradient);
+  color: white;
+  border: none;
+  border-radius: 60px;
+  font-size: 18px;
+  font-weight: 900;
+  cursor: pointer;
+  font-family: 'Noto Sans KR', sans-serif;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.footer-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(123, 73, 255, 0.4);
+}
+
+/* ===== ACTUAL FOOTER ===== */
+footer {
+  background: var(--purple-900);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 40px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer .foot-logo {
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--purple-400);
+}
+
+footer .foot-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+}
+
+footer .foot-links a {
+  color: var(--purple-300);
+  text-decoration: none;
+  font-size: 12px;
+}
+
+footer .foot-copy {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* ===== WAVE DIVIDER ===== */
+.wave-divider {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.wave-divider svg {
+  display: block;
+  width: 100%;
+  height: 60px;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatIn {
+  from { opacity: 0; transform: translateY(40px) scale(0.9); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.float-anim {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s, transform 0.8s;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .steps-grid { grid-template-columns: repeat(2, 1fr); }
+  .feature-row, .feature-row.reverse { flex-direction: column; gap: 40px; }
+  .hero h1 { font-size: 36px; }
+  .steps-heading { font-size: 28px; }
+  .feature-content h2 { font-size: 26px; }
+  footer { flex-direction: column; gap: 16px; text-align: center; }
+}
+
+@media (max-width: 560px) {
+  .steps-grid { grid-template-columns: 1fr; }
+  nav { padding: 16px 20px; }
+  .nav-links { display: none; }
+  .hero h1 { font-size: 28px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">MOOD<span>MAP</span></div>
+  <ul class="nav-links">
+    <li><a href="#steps">사용법</a></li>
+    <li><a href="#features">기능</a></li>
+    <li><a href="#cta">시작하기</a></li>
+  </ul>
+  <button class="nav-cta" onclick="window.open('https://juhoneybee.github.io/Moodie/')">앱 체험하기</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">☁️ AI 기반 감정 큐레이션 플랫폼</div>
+  <img src="./moodie.png" class="hero-moodie float-anim" alt="Moodie">
+  <h1>오늘 감정으로 찾는<br><span class="highlight">나만의 공간</span>, 무디에게 물어보세요</h1>
+  <p class="hero-sub">대화로 완성되는 나만의 감정 지도 가이드</p>
+  <div class="hero-search">
+    <input type="text" placeholder="기분을 말해보세요. 예: 오늘 좀 우울해">
+    <button>→</button>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="intro-inner reveal">
+    <img src="./moodie.png" class="intro-moodie float-anim" alt="Moodie">
+    <div class="intro-text">
+      <span>무디와 함께하는</span>
+      <div class="intro-chip">✨ 감정 기반 장소 추천</div>
+      <span>가이드</span>
+    </div>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section class="steps" id="steps">
+  <p class="steps-title reveal">How It Works</p>
+  <h2 class="steps-heading reveal">무디와 함께하는 4단계</h2>
+
+  <div class="steps-grid">
+    <div class="step-card reveal">
+      <span class="step-badge">STEP 1</span>
+      <div class="step-emoji">💬</div>
+      <h3>감정을 이야기하세요</h3>
+      <p>오늘 기분을 무디에게 말해보세요. 텍스트든, 이모지 터치든 좋아요.</p>
+    </div>
+
+    <div class="step-card reveal">
+      <span class="step-badge">STEP 2</span>
+      <div class="step-emoji">🧠</div>
+      <h3>AI가 감정을 분석해요</h3>
+      <p>무디가 당신의 감정 키워드를 읽고, 기분에 딱 맞는 공간을 찾아요.</p>
+    </div>
+
+    <div class="step-card reveal">
+      <span class="step-badge">STEP 3</span>
+      <div class="step-emoji">📍</div>
+      <h3>주변 장소를 추천해요</h3>
+      <p>내 위치 기반으로 가장 가까운 무드 스팟 3곳을 큐레이션해드려요.</p>
+    </div>
+
+    <div class="step-card reveal">
+      <span class="step-badge">STEP 4</span>
+      <div class="step-emoji">📖</div>
+      <h3>감정을 기록하세요</h3>
+      <p>감정 캘린더와 일기로 나만의 감정 아카이브를 만들어가요.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+
+  <!-- Feature 1 -->
+  <div class="feature-row reveal">
+    <div class="feature-visual">
+      <div class="feature-phone">
+        <div class="phone-emoji">☁️💬</div>
+        <div class="phone-title">무디와 대화하기</div>
+        <div class="phone-desc">"오늘 비가 와서 우울해"<br>→ 주변 카페 3곳 추천!</div>
+      </div>
+    </div>
+    <div class="feature-content">
+      <div class="feature-tag">
+        <span>AI 챗봇</span>
+        <span>감정 분석</span>
+      </div>
+      <h2>검색 없이,<br>대화만으로 찾아요</h2>
+      <p>네이버 지도에서 "비 오는 날 조용한 곳"을 직접 검색하는 대신, 무디에게 기분만 말하면 감정 키워드를 분석해서 최적의 장소를 추천해드려요.</p>
+      <ul class="feature-highlights">
+        <li><span class="check">✓</span>자연어로 감정 입력</li>
+        <li><span class="check">✓</span>감정 맞춤 장소 3곳 큐레이션</li>
+        <li><span class="check">✓</span>카카오맵 연동 실시간 검색</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Feature 2 -->
+  <div class="feature-row reverse reveal">
+    <div class="feature-visual">
+      <div class="feature-phone">
+        <div class="phone-emoji">🗓️✨</div>
+        <div class="phone-title">감정 캘린더</div>
+        <div class="phone-desc">매일 기록한 감정이<br>이모지 스티커로 쌓여요</div>
+      </div>
+    </div>
+    <div class="feature-content">
+      <div class="feature-tag">
+        <span>감정 기록</span>
+        <span>데이터 시각화</span>
+      </div>
+      <h2>나의 감정을<br>눈에 보이게</h2>
+      <p>매일 기록한 감정이 캘린더 위에 이모지로 쌓여요. 이번 달 가장 많이 느낀 감정, 방문한 장소를 한눈에 확인할 수 있어요.</p>
+      <ul class="feature-highlights">
+        <li><span class="check">✓</span>이번 주 감정 미니 캘린더</li>
+        <li><span class="check">✓</span>무디의 칭찬 리포트</li>
+        <li><span class="check">✓</span>월간 감정/장소 통계</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Feature 3 -->
+  <div class="feature-row reveal">
+    <div class="feature-visual">
+      <div class="feature-phone">
+        <div class="phone-emoji">📖🌙</div>
+        <div class="phone-title">감정 일기</div>
+        <div class="phone-desc">오늘 하루를<br>무디와 함께 기록해요</div>
+      </div>
+    </div>
+    <div class="feature-content">
+      <div class="feature-tag">
+        <span>일기</span>
+        <span>아카이브</span>
+      </div>
+      <h2>나만의<br>감정 아카이브</h2>
+      <p>감정 일기를 쓰면 무디가 자동으로 감정을 분석해요. 6개월치 감정 기록은 복제할 수 없는 나만의 자산이 돼요.</p>
+      <ul class="feature-highlights">
+        <li><span class="check">✓</span>날짜별 감정 · 활동 기록</li>
+        <li><span class="check">✓</span>AI 자동 감정 분석</li>
+        <li><span class="check">✓</span>삭제할 수 없는 앱이 되는 비결</li>
+      </ul>
+    </div>
+  </div>
+
+</section>
+
+<!-- WAVE -->
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
+    <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#1A0038"/>
+  </svg>
+</div>
+
+<!-- FOOTER CTA -->
+<section class="footer-cta" id="cta">
+  <p>감정의 모든 순간을 더 편하게 만드는</p>
+  <p><strong>AI 기반 감정 큐레이션 플랫폼</strong></p>
+  <h2>MOODMAP</h2>
+  <img src="./moodie.png" class="footer-moodie float-anim" alt="Moodie">
+  <br>
+  <button class="footer-btn" onclick="window.open('https://juhoneybee.github.io/Moodie/')">
+    무디와 시작하기 ☁️
+  </button>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-logo">MOODMAP</div>
+  <ul class="foot-links">
+    <li><a href="#">이용약관</a></li>
+    <li><a href="#">개인정보처리방침</a></li>
+    <li><a href="#">문의하기</a></li>
+  </ul>
+  <p class="foot-copy">© 2026 MOODMAP. All rights reserved.</p>
+</footer>
+
+<!-- Scroll Reveal Script -->
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.15 });
+
+reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
