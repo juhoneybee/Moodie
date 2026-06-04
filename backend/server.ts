@@ -1,85 +1,173 @@
+import dotenv from "dotenv"
+dotenv.config()
+
+import fs from "fs"
+import path from "path"
+
+import axios from "axios"
 import express from "express"
-import type {
-Request,
-Response
-} from "express"
-
+import type { Request, Response } from "express"
 import cors from "cors"
+import { keywordMap } from "./data/keywordMap"
+import { calculateScore } from "./utils/calculateScore"
+import { places } from "./data/places"
+import { recommend } from "./utils/recommend"
 
-import {
-  places
-} from "./data/places"
+const app = express()
 
-import {
-  recommend
-} from "./utils/recommend"
+app.use(cors())
+app.use(express.json())
 
-const app =
-express()
+app.get("/recommend", async (req: Request, res: Response) => {
+    try {
+        const mood = req.query.mood
+        const place = req.query.place
+        const lat = req.query.lat
+        const lng = req.query.lng
 
-app.use(
-  cors()
-)
+        const keywords =
+            (keywordMap as any)[mood as string]?.[place as string]
+            || [place]
 
-app.get(
-"/recommend",
+        console.log("검색 키워드:", keywords)
+        console.log("mood:", mood)
+        console.log("place:", place)
+        console.log("isArray:", Array.isArray(keywords))
 
-(
-req:Request,
-res:Response
-)=>{
+        let allDocuments: any[] = []
 
-const mood=
-req.query.mood
+        for (const keyword of keywords) {
 
-const place=
-req.query.place
+            console.log("검색중:", keyword)
 
-console.log(
-"받은 place:",
-place
-)
+            const response = await axios.get(
+                "https://dapi.kakao.com/v2/local/search/keyword.json",
+                {
+                    headers: {
+                        Authorization: `KakaoAK ${process.env.KAKAO_REST_API_KEY}`
+                    },
+                    params: {
+                        query: keyword,
+                        x: lng,
+                        y: lat,
+                        radius: 3000,
+                        size: 10
+                    }
+                }
+            )
 
-console.log(
-"전체 places:",
-places
-)
+            allDocuments.push(
+                ...response.data.documents
+            )
+        }
 
-const filtered=
+        const documents = Array.from(
+            new Map(
+                allDocuments.map(
+                    (doc: any) => [
+                        doc.id,
+                        doc
+                    ]
+                )
+            ).values()
+        )
 
-places.filter(
-p=>
-p.category===
-place
-)
+        const spots = documents.map((p: any) => {
 
-console.log(
-"필터 결과:",
-filtered
-)
+            const score = calculateScore(
+                mood as string,
+                p.category_name,
+                Number(p.distance)
+            )
 
-const result=
+            console.log(
+                p.place_name,
+                p.distance,
+                p.category_name,
+                score
+            )
 
-recommend(
-filtered,
-mood as string
-)
+            return {
+                name: p.place_name,
+                address: p.road_address_name,
+                distance: Number(p.distance),
+                lat: Number(p.y),
+                lng: Number(p.x),
+                category: p.category_name,
+                score
+            }
+        })
 
-res.json(
-result
-)
+        spots.sort(
+            (a: any, b: any) =>
+                b.score - a.score
+        )
 
-}
+        console.log(
+            spots.map((s: any) => ({
+                name: s.name,
+                score: s.score
+            }))
+        )
 
-)
+        res.json(
+            spots.slice(0, 10)
+        )
 
-app.listen(
-3000,
-()=>{
+    } catch (err: any) {
 
-console.log(
-"서버 실행"
-)
+        console.log("에러 발생")
 
-}
-)
+        console.log(
+            err.response?.data
+        )
+
+        console.log(
+            err.message
+        )
+
+        res.status(500).json({
+            error: "카카오 API 실패"
+        })
+    }
+})
+
+app.post("/feedback", (req, res) => {
+    const { mood, place, rating } = req.body
+
+    const filePath = path.join(
+        __dirname,
+        "data",
+        "feedback.json"
+    )
+
+    const feedbacks = JSON.parse(
+        fs.readFileSync(
+            filePath,
+            "utf-8"
+        )
+    )
+
+    feedbacks.push({
+        mood,
+        place,
+        rating
+    })
+
+    fs.writeFileSync(
+        filePath,
+        JSON.stringify(
+            feedbacks,
+            null,
+            2
+        )
+    )
+
+    res.json({
+        success: true
+    })
+})
+
+app.listen(3000, () => {
+    console.log("서버 실행")
+})

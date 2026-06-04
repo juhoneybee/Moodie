@@ -12,7 +12,8 @@ function App() {
     const [mood, setMood] = useState("")
     const [place, setPlace] = useState("")
     const [homeStep, setHomeStep] = useState(0)
-    const [name, setName] = useState(localStorage.getItem("username") || "")    
+    const [name, setName] = useState(localStorage.getItem("username") || "")
+    const [location, setLocation] = useState({lat:0, lng:0})
     const [selected, setSelected] = useState<string[]>([])
     const [spots, setSpots] = useState<any[]>([])
 
@@ -145,7 +146,10 @@ function App() {
 
                 {/* PERMISSION SCREEN */}
                 {screen === "permission" && (
-                    <PermissionScreen onFinish={() => setScreen("home")} />
+                    <PermissionScreen
+                        onFinish={() => setScreen("home")}
+                        setLocation={setLocation}
+                    />
                 )}
 
                 {/* HOME SCREEN */}
@@ -163,6 +167,8 @@ function App() {
                             setHomeStep={setHomeStep}
                             spots={spots}
                             setSpots={setSpots}
+                            location={location}
+                            setLocation={setLocation}
                         />
                     </>  
                 )}

@@ -2,10 +2,12 @@ import PermissionCard from "../components/PermissionCard"
 
 interface Props {
     onFinish: () => void
+    setLocation: any
 }
 
 function PermissionScreen({
-    onFinish
+    onFinish,
+    setLocation
 }: Props) {
     return (
         <section
@@ -80,7 +82,21 @@ function PermissionScreen({
 
             {/* CTA */}
             <button
-                onClick={onFinish}
+                onClick={() => {
+                    navigator.geolocation.getCurrentPosition(
+                        (position) => {
+                            setLocation({
+                                lat: position.coords.latitude,
+                                lng: position.coords.longitude
+                            })
+                            onFinish()
+                        },
+                        (error) => {
+                            console.error(error)
+                            alert("위치 권한이 필요해요 ☁️")
+                        }
+                    )
+                }}
                 className="
                 mt-12
                 h-16

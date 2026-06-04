@@ -57,6 +57,12 @@ const spotSuggestions: any = {
 }
 
 function HomeScreen({
+<<<<<<< HEAD
+    name, tab, setTab, mood, setMood, place, setPlace,
+    homeStep, setHomeStep, spots, setSpots
+}: Props) {
+
+=======
     name,
     tab,
     setTab,
@@ -87,6 +93,7 @@ function HomeScreen({
     }, [])
 
     /* ──── 데이터 가져오기 ──── */
+>>>>>>> 506145b99ad396653df03cba197d465f00d59572
     const logs = JSON.parse(localStorage.getItem("moodLogs") || "[]")
     const now = new Date()
     const todayStr = now.toISOString().slice(0, 10)
@@ -154,8 +161,13 @@ function HomeScreen({
     }
 
     return (
+<<<<<<< HEAD
         <section className="h-full bg-white relative">
             <div className="h-full pb-32">
+=======
+        <section className="h-full bg-[#f7f4ff] relative">
+            <div className="h-full pb-20">
+>>>>>>> 506145b99ad396653df03cba197d465f00d59572
                 {tab === "home" && (
                     homeStep < 2 ? (
                         <HomeTab
@@ -166,16 +178,22 @@ function HomeScreen({
                             location={location}
                         />
                     ) : (
+<<<<<<< HEAD
 
                         <div className="h-full overflow-y-auto pb-32 bg-[#FAFAFE]">
 
-                            {/* ===== 헤더 ===== */}
+                            {/* ===== \uD5E4\uB354 ===== */}
                             <div
                                 className="px-6 pt-14 pb-8"
                                 style={{
                                     background: "linear-gradient(180deg, #F3EDFF 0%, #FAFAFE 100%)"
                                 }}
                             >
+=======
+                        <div className="h-full overflow-y-auto pb-20">
+                            {/* ===== 1. 인사 헤더 ===== */}
+                            <div className="px-6 pt-12">
+>>>>>>> 506145b99ad396653df03cba197d465f00d59572
                                 <div className="flex items-center justify-between">
                                     <div>
                                         <p className="text-sm font-bold" style={{ color: "#9B7EEB" }}>
@@ -202,7 +220,7 @@ function HomeScreen({
                                 </div>
                             </div>
 
-                            {/* ===== 오늘의 감정 ===== */}
+                            {/* ===== \uC624\uB298\uC758 \uAC10\uC815 ===== */}
                             <div className="px-5 -mt-2">
                                 {todayLog ? (
                                     <div
@@ -274,7 +292,7 @@ function HomeScreen({
                                 )}
                             </div>
 
-                            {/* ===== 이번 주 감정 캘린더 ===== */}
+                            {/* ===== \uC774\uBC88 \uC8FC \uAC10\uC815 \uCE98\uB9B0\uB354 ===== */}
                             <div className="px-5 mt-5">
                                 <div
                                     className="rounded-[24px] p-5"
@@ -367,7 +385,7 @@ function HomeScreen({
                                 </div>
                             </div>
 
-                            {/* ===== 무디의 칭찬 리포트 ===== */}
+                            {/* ===== \uBB34\uB514\uC758 \uCE6D\uCC2C \uB9AC\uD3EC\uD2B8 ===== */}
                             <div className="px-5 mt-5">
                                 <div
                                     className="rounded-[24px] p-5"
@@ -396,42 +414,42 @@ function HomeScreen({
                                             >
                                                 {getPraiseMessage()}
                                             </p>
-
-                                            {totalLogs > 0 && (
-                                                <div className="flex gap-3 mt-4">
-                                                    <div
-                                                        className="flex-1 rounded-2xl p-3 text-center"
-                                                        style={{ background: "#F3EDFF" }}
-                                                    >
-                                                        <p
-                                                            className="text-xl font-black"
-                                                            style={{ color: "#6E31E8" }}
-                                                        >
-                                                            {totalLogs}{"\uD68C"}
-                                                        </p>
-                                                        <p className="text-[10px] font-bold mt-0.5" style={{ color: "#9B7EEB" }}>
-                                                            {"\uC774\uBC88 \uB2EC \uAE30\uB85D"}
-                                                        </p>
-                                                    </div>
-                                                    <div
-                                                        className="flex-1 rounded-2xl p-3 text-center"
-                                                        style={{ background: "#F3EDFF" }}
-                                                    >
-                                                        <p className="text-xl font-black" style={{ color: "#6E31E8" }}>
-                                                            {topMood ? <img src={moodImageMap[topMood[0]] || BASE + "moodie_smile.png"} className="w-8 h-8 object-contain mx-auto" /> : "\u2014"}
-                                                        </p>
-                                                        <p className="text-[10px] font-bold mt-0.5" style={{ color: "#9B7EEB" }}>
-                                                            {topMood ? topMood[0] : "\uAC00\uC7A5 \uB9CE\uC740 \uAC10\uC815"}
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            )}
                                         </div>
                                     </div>
+
+                                    {totalLogs > 0 && (
+                                        <div className="flex gap-3 mt-4">
+                                            <div
+                                                className="flex-1 rounded-2xl p-3 text-center"
+                                                style={{ background: "#F3EDFF" }}
+                                            >
+                                                <p
+                                                    className="text-xl font-black"
+                                                    style={{ color: "#6E31E8" }}
+                                                >
+                                                    {totalLogs}{"\uD68C"}
+                                                </p>
+                                                <p className="text-[10px] font-bold mt-0.5" style={{ color: "#9B7EEB" }}>
+                                                    {"\uC774\uBC88 \uB2EC \uAE30\uB85D"}
+                                                </p>
+                                            </div>
+                                            <div
+                                                className="flex-1 rounded-2xl p-3 text-center"
+                                                style={{ background: "#F3EDFF" }}
+                                            >
+                                                <p className="text-xl font-black" style={{ color: "#6E31E8" }}>
+                                                    {topMood ? <img src={moodImageMap[topMood[0]] || BASE + "moodie_smile.png"} className="w-8 h-8 object-contain mx-auto" /> : "\u2014"}
+                                                </p>
+                                                <p className="text-[10px] font-bold mt-0.5" style={{ color: "#9B7EEB" }}>
+                                                    {topMood ? topMood[0] : "\uAC00\uC7A5 \uB9CE\uC740 \uAC10\uC815"}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
 
-                            {/* ===== 오늘의 추천 스팟 ===== */}
+                            {/* ===== \uC624\uB298\uC758 \uCD94\uCC9C \uC2A4\uD31F ===== */}
                             <div className="px-5 mt-5">
                                 <button
                                     onClick={() => setTab("chat")}
@@ -461,7 +479,7 @@ function HomeScreen({
                                 </button>
                             </div>
 
-                            {/* ===== 빠른 메뉴 ===== */}
+                            {/* ===== \uBE60\uB978 \uBA54\uB274 ===== */}
                             <div className="px-5 mt-5">
                                 <h2
                                     className="text-base font-black mb-3"
@@ -515,10 +533,11 @@ function HomeScreen({
                                 </div>
                             </div>
 
-                            {/* ===== 월간 리포트 ===== */}
+                            {/* ===== \uC6D4\uAC04 \uB9AC\uD3EC\uD2B8 ===== */}
                             <div className="mt-5">
                                 <MonthlyReport />
                             </div>
+<<<<<<< HEAD
 
                             <style>{`
                                 @keyframes float {
@@ -527,6 +546,8 @@ function HomeScreen({
                                 }
                             `}</style>
 
+=======
+>>>>>>> 506145b99ad396653df03cba197d465f00d59572
                         </div>
                     )
                 )}

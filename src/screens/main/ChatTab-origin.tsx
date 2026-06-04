@@ -42,16 +42,15 @@ function ChatTab() {
     const scrollRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-            (pos) => setUserLocation({ x: pos.coords.longitude, y: pos.coords.latitude }),
-            () => setUserLocation({ x: 126.9780, y: 37.5665 })
-        )
-    } else {
-        // 동기 setState 제거 → setTimeout으로 감싸기
-        setTimeout(() => setUserLocation({ x: 126.9780, y: 37.5665 }), 0)
-    }
-}, [])
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (pos) => setUserLocation({ x: pos.coords.longitude, y: pos.coords.latitude }),
+                () => setUserLocation({ x: 126.9780, y: 37.5665 })
+            )
+        } else {
+            setUserLocation({ x: 126.9780, y: 37.5665 })
+        }
+    }, [])
 
     useEffect(() => {
         if (scrollRef.current) {
@@ -66,7 +65,7 @@ function ChatTab() {
         if (found) return found
         return {
             emotion: "\uBCF5\uC7A1\uD574\uC694",
-            reply: "\uC870\uAE08 \uB354 \uC774\uC57C\uAE30\uD574\uC990\uB798\uC694? \uBB34\uB514\uAC00 \uADC0 \uAE30\uC6B8\uC774\uACE0 \uC788\uC5B4\uC694.",
+            reply: "\uC870\uAE08 \uB354 \uC774\uC57C\uAE30\uD574\uC904\uB798\uC694? \uBB34\uB514\uAC00 \uADC0 \uAE30\uC6B8\uC774\uACE0 \uC788\uC5B4\uC694.",
             places: ["\u2601\uFE0F \uBB34\uB4DC \uC2A4\uD31F"]
         }
     }
@@ -79,10 +78,15 @@ function ChatTab() {
                 x: String(userLocation.x),
                 y: String(userLocation.y)
             })
+<<<<<<< HEAD
+            const res = await fetch("http://localhost:4000/api/recommend?" + params)
+=======
+
             const res = await fetch(`https://moodie-api.onrender.com/recommend?${params}`)
+>>>>>>> 506145b99ad396653df03cba197d465f00d59572
             const data = await res.json()
             return data.places || []
-        } catch  {
+        } catch (err) {
             return []
         }
     }
@@ -133,7 +137,7 @@ function ChatTab() {
             if (places.length > 0) {
                 updated.push({
                     role: "bot",
-                    text: result.reply + "\n\n\uB0B4 \uC8FC\uBCC0\uC5D0\uC11C " + emotionKey + "\uC744 \uB2AC\uB798\uC904 \uACF3 " + places.length + "\uAD70\uB370\uB97C \uCC3E\uC558\uC5B4!",
+                    text: result.reply + "\n\n\uB0B4 \uC8FC\uBCC0\uC5D0\uC11C " + emotionKey + "\uC744 \uB2EC\uB798\uC904 \uACF3 " + places.length + "\uAD70\uB370\uB97C \uCC3E\uC558\uC5B4!",
                     emotion: emotionKey,
                     places: places
                 })
@@ -409,6 +413,7 @@ function ChatTab() {
             </div>
 
             {/* 입력창 */}
+<<<<<<< HEAD
             <div className="absolute bottom-28 left-4 right-4">
                 <div
                     className="flex items-center rounded-full overflow-hidden"
@@ -434,6 +439,25 @@ function ChatTab() {
                     >
                         {"\u25B8"}
                     </button>
+=======
+            <div className="absolute bottom-[25px] left-4 right-4">
+                <div className="flex gap-2 items-center">
+                    <div className="flex-1 flex bg-white rounded-full shadow overflow-hidden">
+                        <input
+                            value={input}
+                            onChange={(e) => setInput(e.target.value)}
+                            onKeyDown={handleKeyDown}
+                            placeholder="무디에게 이야기하기..."
+                            className="flex-1 h-12 px-5 outline-none text-sm bg-transparent"
+                        />
+                        <button
+                            onClick={send}
+                            className="w-12 h-12 bg-gradient-to-r from-[#7B49FF] to-[#B381FF] text-white rounded-full flex items-center justify-center text-lg font-bold"
+                        >
+                            ▸
+                        </button>
+                    </div>
+>>>>>>> 506145b99ad396653df03cba197d465f00d59572
                 </div>
             </div>
 
