@@ -25,12 +25,17 @@ function App() {
         }
     }
 
-    useEffect(() => {
+   useEffect(() => {
     const savedName = localStorage.getItem("username")
     if (savedName) {
-    setName(savedName)
-    setScreen("home")} else {setScreen("onboarding")}}, [])
-
+        setTimeout(() => {
+            setName(savedName)
+            setScreen("home")
+        }, 0)
+    } else {
+        setTimeout(() => setScreen("onboarding"), 0)
+    }
+}, [])
     return (
         <main className="flex min-h-screen items-center justify-center bg-gradient-to-br from-[#f5edff] to-[#e9ddff] p-4">
             <div className="relative h-[844px] w-[390px] overflow-hidden rounded-[40px] border border-white bg-white/40 shadow-2xl backdrop-blur-2xl">
@@ -106,13 +111,12 @@ function App() {
                                     </p>
 
                                     <div className="grid grid-cols-2 gap-4 mt-10">
-                                        {questions[step - 1].options.map((option) => (
-                                            <OptionCard
-                                                key={option}
-                                                label={option}
-                                                selected={selected.includes(option)}
-                                                onClick={() => toggleOption(option)}
-                                            />
+                                       {questions[step - 1].options.map((option: any) => (
+                                        <OptionCard
+                                        key={option.label}  
+                                        label={option.label}
+                                        selected={selected.includes(option.label)}
+                                        onClick={() => toggleOption(option.label)}    />
                                         ))}
                                     </div>
                                 </>

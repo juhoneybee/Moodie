@@ -6,7 +6,6 @@ import ChatTab from "./main/ChatTab"
 import DiaryTab from "./main/DiaryTab"
 import SettingsTab from "./main/SettingsTab"
 import MonthlyReport from "./main/MonthlyReport"
-import { homeQuestions } from "../data/homeQuestions"
 
 interface Props {
     name: string
@@ -27,66 +26,37 @@ interface Props {
 const BASE = "/Moodie/"
 
 const moodImageMap: any = {
-    "\uD589\uBCF5\uD574\uC694": BASE + "mood_happy.png",
-    "\uC124\uB808\uC694": BASE + "mood_excited.png",
-    "\uC2E0\uB098\uC694": BASE + "mood_joyful.png",
-    "\uCC28\uBD84\uD574\uC694": BASE + "mood_calm.png",
-    "\uD53C\uACE4\uD574\uC694": BASE + "mood_tired.png",
-    "\uBCF5\uC7A1\uD574\uC694": BASE + "mood_sad.png",
-    "\uC6B0\uC6B8\uD574\uC694": BASE + "mood_sad.png",
-    "\uC2AC\uD37C\uC694": BASE + "mood_crying.png",
-    "\uB2F5\uB2F5\uD574\uC694": BASE + "mood_angry.png",
-    "\uBA4D\uD574\uC694": BASE + "mood_tired.png",
-    "\uD654\uB098\uC694": BASE + "mood_angry.png",
-    "\uC678\uB85C\uC6CC\uC694": BASE + "mood_crying.png"
+    "행복/설렘": BASE + "무디 기분좋아.png",
+    "차분/안정": BASE + "무디 편안해.png",
+    "피곤/멍함": BASE + "무디 피곤.png",
+    "슬픔/우울": BASE + "무디 우울해.png",
+    "화남/답답": BASE + "무디 화나.png",
+    "외로움":   BASE + "무디 우울해.png",
 }
 
 const spotSuggestions: any = {
-    "\uD589\uBCF5\uD574\uC694": { name: "\uBD84\uC704\uAE30 \uC88B\uC740 \uB9DB\uC9D1", desc: "\uD589\uBCF5\uD55C \uB0A0\uC5D4 \uB9DB\uC788\uB294 \uC74C\uC2DD\uACFC \uD568\uAED8!" },
-    "\uC124\uB808\uC694": { name: "\uC131\uC218 \uD31D\uC5C5\uC2A4\uD1A0\uC5B4", desc: "\uC124\uB808\uB294 \uB9C8\uC74C\uC5D0 \uD2B8\uB80C\uB514\uD55C \uACF5\uAC04 \uC5B4\uB54C\uC694?" },
-    "\uC2E0\uB098\uC694": { name: "\uBD84\uC704\uAE30 \uBC14", desc: "\uC2E0\uB098\uB294 \uC5D0\uB108\uC9C0\uB97C \uC774\uC5B4\uAC00\uC694!" },
-    "\uCC28\uBD84\uD574\uC694": { name: "\uC870\uC6A9\uD55C \uCE74\uD398", desc: "\uCC28\uBD84\uD55C \uC624\uB298, \uCEE4\uD53C \uD55C \uC794\uC758 \uC5EC\uC720" },
-    "\uD53C\uACE4\uD574\uC694": { name: "\uACF5\uC6D0 \uC0B0\uCC45\uB85C", desc: "\uC790\uC5F0 \uC18D\uC5D0\uC11C \uC5D0\uB108\uC9C0\uB97C \uCDA9\uC804\uD574\uC694" },
-    "\uBCF5\uC7A1\uD574\uC694": { name: "\uB3C5\uB9BD\uC11C\uC810", desc: "\uCC45 \uC0AC\uC774\uC5D0\uC11C \uB9C8\uC74C\uC744 \uC815\uB9AC\uD574\uBD10\uC694" },
-    "\uC6B0\uC6B8\uD574\uC694": { name: "\uC804\uC2DC\uD68C", desc: "\uC608\uC220\uC774 \uC704\uB85C\uAC00 \uB418\uC5B4\uC904 \uAC70\uC608\uC694" },
-    "\uC2AC\uD37C\uC694": { name: "\uD587\uBE5B \uC88B\uC740 \uCE74\uD398", desc: "\uB530\uB73B\uD55C \uBE5B\uC774 \uB9C8\uC74C\uC744 \uB179\uC5EC\uC904 \uAC70\uC608\uC694" },
-    "\uB2F5\uB2F5\uD574\uC694": { name: "\uC804\uB9DD \uC88B\uC740 \uACF3", desc: "\uD0C1 \uD2B8\uC778 \uACF3\uC5D0\uC11C \uC228 \uC26C\uC5B4\uBD10\uC694" },
-    "\uBA4D\uD574\uC694": { name: "\uC0B0\uCC45\uB85C", desc: "\uAC78\uC73C\uBA74 \uBA38\uB9AC\uAC00 \uB9D1\uC544\uC838\uC694" },
-    "\uD654\uB098\uC694": { name: "\uACF5\uC6D0", desc: "\uBC14\uB78C\uC774 \uB9C8\uC74C\uC744 \uC2DD\uD600\uC904 \uAC70\uC608\uC694" },
-    "\uC678\uB85C\uC6CC\uC694": { name: "\uB3D9\uB124 \uCE74\uD398", desc: "\uB530\uB73B\uD55C \uACF5\uAC04\uC5D0\uC11C \uC704\uB85C \uBC1B\uC544\uC694" }
+    "행복/설렘": { name: "분위기 좋은 맛집", desc: "행복한 날엔 맛있는 음식과 함께!" },
+    "차분/안정": { name: "조용한 카페", desc: "차분한 오늘, 커피 한 잔의 여유" },
+    "피곤/멍함": { name: "공원 산책로", desc: "자연 속에서 에너지를 충전해요" },
+    "슬픔/우울": { name: "햇빛 좋은 카페", desc: "따뜻한 빛이 마음을 녹여줄 거예요" },
+    "화남/답답": { name: "전망 좋은 곳", desc: "탁 트인 곳에서 숨 쉬어봐요" },
+    "외로움":   { name: "동네 카페", desc: "따뜻한 공간에서 위로 받아요" },
 }
 
 function HomeScreen({
-    name,
-    tab,
-    setTab,
-    mood,
-    setMood,
-    place,
-    setPlace,
-    homeStep,
-    setHomeStep,
-    spots,
-    setSpots,
-    location,
-    setLocation
+    name, tab, setTab, mood, setMood, place, setPlace,
+    homeStep, setHomeStep, spots, setSpots, location, setLocation
 }: Props) {
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(
             (position) => {
-                setLocation({
-                    lat: position.coords.latitude,
-                    lng: position.coords.longitude
-                })
+                setLocation({ lat: position.coords.latitude, lng: position.coords.longitude })
             },
-            (error) => {
-                console.log(error)
-            }
+            (error) => { console.log(error) }
         )
     }, [])
 
-    /* ──── 데이터 가져오기 ──── */
     const logs = JSON.parse(localStorage.getItem("moodLogs") || "[]")
     const now = new Date()
     const todayStr = now.toISOString().slice(0, 10)
@@ -97,10 +67,6 @@ function HomeScreen({
     })
 
     const todayLog = logs.find((item: any) => item.createdAt?.slice(0, 10) === todayStr)
-
-    const moodMap = Object.fromEntries(
-        homeQuestions.mood.options.map((item: any) => [item.label, item.emoji])
-    )
 
     const moodCount: any = {}
     currentMonth.forEach((item: any) => {
@@ -121,7 +87,7 @@ function HomeScreen({
         return dates
     }
     const weekDates = getWeekDates()
-    const dayLabels = ["\uC6D4", "\uD654", "\uC218", "\uBAA9", "\uAE08", "\uD1A0", "\uC77C"]
+    const dayLabels = ["월", "화", "수", "목", "금", "토", "일"]
 
     const dateToMood: any = {}
     logs.forEach((item: any) => {
@@ -130,27 +96,27 @@ function HomeScreen({
     })
 
     const todayMoodLabel = todayLog?.mood || mood || ""
-    const suggestion = spotSuggestions[todayMoodLabel] || spotSuggestions["\uCC28\uBD84\uD574\uC694"]
+    const suggestion = spotSuggestions[todayMoodLabel] || spotSuggestions["차분/안정"]
 
     const getPraiseMessage = () => {
-        if (totalLogs === 0) return "\uC544\uC9C1 \uAE30\uB85D\uC774 \uC5C6\uC5B4\uC694.\n\uC624\uB298 \uCCAB \uAE30\uB85D\uC744 \uB0A8\uACA8\uBCFC\uAE4C\uC694?"
-        if (totalLogs < 3) return "\uBCC4\uC368 " + totalLogs + "\uBC88\uC774\uB098 \uAE30\uB85D\uD588\uC5B4\uC694!\n\uC88B\uC740 \uC2DC\uC791\uC774\uC57C \u2728"
+        if (totalLogs === 0) return "아직 기록이 없어요.\n오늘 첫 기록을 남겨볼까요?"
+        if (totalLogs < 3) return "벌써 " + totalLogs + "번이나 기록했어요!\n좋은 시작이야 ✨"
         const topMoodName = topMood ? topMood[0] : ""
         const topMoodCount = topMood ? topMood[1] : 0
-        if (["\uD589\uBCF5\uD574\uC694", "\uC124\uB808\uC694", "\uC2E0\uB098\uC694"].includes(topMoodName)) {
-            return "\uC774\uBC88 \uB2EC " + topMoodName + "\uAC00 " + topMoodCount + "\uBC88!\n\uC88B\uC740 \uD750\uB984\uC774 \uC774\uC5B4\uC9C0\uACE0 \uC788\uC5B4\uC694 \u2600\uFE0F"
+        if (["행복/설렘"].includes(topMoodName)) {
+            return "이번 달 " + topMoodName + "가 " + topMoodCount + "번!\n좋은 흐름이 이어지고 있어요 ☀️"
         }
-        if (["\uC6B0\uC6B8\uD574\uC694", "\uC2AC\uD37C\uC694", "\uC678\uB85C\uC6CC\uC694"].includes(topMoodName)) {
-            return totalLogs + "\uBC88 \uAE30\uB85D\uD558\uBA74\uC11C \uC798 \uBC84\uD600\uC654\uC5B4\uC694.\n\uBB34\uB514\uAC00 \uD56D\uC0C1 \uACE1\uC5D0 \uC788\uC744\uAC8C\uC694 \uD83C\uDF19"
+        if (["슬픔/우울", "외로움"].includes(topMoodName)) {
+            return totalLogs + "번 기록하면서 잘 버텨왔어요.\n무디가 항상 곁에 있을게요 🌙"
         }
-        return "\uC774\uBC88 \uB2EC " + totalLogs + "\uBC88 \uAE30\uB85D!\n\uAFB8\uC900\uD788 \uAC10\uC815\uC744 \uB3CC\uBCF4\uB294 \uB2F9\uC2E0\uC774 \uBA4B\uC838\uC694 \uD83C\uDF3F"
+        return "이번 달 " + totalLogs + "번 기록!\n꾸준히 감정을 돌보는 당신이 멋져요 🌿"
     }
 
     const greetingByTime = () => {
         const h = now.getHours()
-        if (h < 12) return "\uC88B\uC740 \uC544\uCE68\uC774\uC5D0\uC694"
-        if (h < 18) return "\uC88B\uC740 \uC624\uD6C4\uC608\uC694"
-        return "\uC88B\uC740 \uC800\uB141\uC774\uC5D0\uC694"
+        if (h < 12) return "좋은 아침이에요"
+        if (h < 18) return "좋은 오후예요"
+        return "좋은 저녁이에요"
     }
 
     return (
@@ -166,139 +132,59 @@ function HomeScreen({
                             location={location}
                         />
                     ) : (
-
                         <div className="h-full overflow-y-auto pb-32 bg-[#FAFAFE]">
 
-                            {/* ===== 헤더 ===== */}
-                            <div
-                                className="px-6 pt-14 pb-8"
-                                style={{
-                                    background: "linear-gradient(180deg, #F3EDFF 0%, #FAFAFE 100%)"
-                                }}
-                            >
+                            {/* 헤더 */}
+                            <div className="px-6 pt-14 pb-8" style={{ background: "linear-gradient(180deg, #F3EDFF 0%, #FAFAFE 100%)" }}>
                                 <div className="flex items-center justify-between">
                                     <div>
-                                        <p className="text-sm font-bold" style={{ color: "#9B7EEB" }}>
-                                            {greetingByTime()} ☁️
-                                        </p>
-                                        <h1
-                                            className="text-[32px] font-black mt-1"
-                                            style={{
-                                                color: "#2D1654",
-                                                letterSpacing: "-1px",
-                                                lineHeight: 1.2
-                                            }}
-                                        >
-                                            {name || "\uC0AC\uC6A9\uC790"}{"\uB2D8"}
+                                        <p className="text-sm font-bold" style={{ color: "#9B7EEB" }}>{greetingByTime()} ☁️</p>
+                                        <h1 className="text-[32px] font-black mt-1" style={{ color: "#2D1654", letterSpacing: "-1px", lineHeight: 1.2 }}>
+                                            {name || "사용자"}님
                                         </h1>
                                     </div>
-                                    <img
-                                        src={BASE + "moodie_smile.png"}
-                                        className="w-20 drop-shadow-lg"
-                                        style={{
-                                            animation: "float 3s ease-in-out infinite"
-                                        }}
-                                    />
+                                    <img src={BASE + "moodie_smile.png"} className="w-20 drop-shadow-lg" style={{ animation: "float 3s ease-in-out infinite" }} />
                                 </div>
                             </div>
 
-                            {/* ===== 오늘의 감정 ===== */}
+                            {/* 오늘의 감정 */}
                             <div className="px-5 -mt-2">
                                 {todayLog ? (
-                                    <div
-                                        className="rounded-[24px] p-5 flex items-center gap-4"
-                                        style={{
-                                            background: "#fff",
-                                            border: "1.5px solid #EDE6FF",
-                                            boxShadow: "0 2px 20px rgba(123,73,255,0.06)"
-                                        }}
-                                    >
-                                        <div
-                                            className="w-16 h-16 rounded-2xl flex items-center justify-center overflow-hidden"
-                                            style={{ background: "#F3EDFF" }}
-                                        >
+                                    <div className="rounded-[24px] p-5 flex items-center gap-4" style={{ background: "#fff", border: "1.5px solid #EDE6FF", boxShadow: "0 2px 20px rgba(123,73,255,0.06)" }}>
+                                        <div className="w-16 h-16 rounded-2xl flex items-center justify-center overflow-hidden" style={{ background: "#F3EDFF" }}>
                                             <img src={moodImageMap[todayLog.mood] || BASE + "moodie_smile.png"} className="w-14 h-14 object-contain" />
                                         </div>
                                         <div className="flex-1">
-                                            <p className="text-xs font-bold" style={{ color: "#9B7EEB" }}>
-                                                {"\uC624\uB298\uC758 \uAE30\uBD84"}
-                                            </p>
-                                            <h3
-                                                className="text-xl font-black mt-0.5"
-                                                style={{ color: "#2D1654" }}
-                                            >
-                                                {todayLog.mood}
-                                            </h3>
+                                            <p className="text-xs font-bold" style={{ color: "#9B7EEB" }}>오늘의 기분</p>
+                                            <h3 className="text-xl font-black mt-0.5" style={{ color: "#2D1654" }}>{todayLog.mood}</h3>
                                             {todayLog.place && (
-                                                <p className="text-xs mt-1" style={{ color: "#B9A3F0" }}>
-                                                    📍 {todayLog.place}{"\uC5D0\uC11C"}
-                                                </p>
+                                                <p className="text-xs mt-1" style={{ color: "#B9A3F0" }}>📍 {todayLog.place}에서</p>
                                             )}
                                         </div>
                                     </div>
                                 ) : (
-                                    <button
-                                        onClick={() => {
-                                            setHomeStep(0)
-                                            setMood("")
-                                            setPlace("")
-                                        }}
+                                    <button onClick={() => { setHomeStep(0); setMood(""); setPlace("") }}
                                         className="w-full rounded-[24px] p-5 flex items-center gap-4 text-left"
-                                        style={{
-                                            background: "#fff",
-                                            border: "1.5px dashed #D8CCFF",
-                                            boxShadow: "0 2px 20px rgba(123,73,255,0.04)"
-                                        }}
-                                    >
-                                        <div
-                                            className="w-16 h-16 rounded-2xl flex items-center justify-center"
-                                            style={{ background: "#F3EDFF" }}
-                                        >
+                                        style={{ background: "#fff", border: "1.5px dashed #D8CCFF", boxShadow: "0 2px 20px rgba(123,73,255,0.04)" }}>
+                                        <div className="w-16 h-16 rounded-2xl flex items-center justify-center" style={{ background: "#F3EDFF" }}>
                                             <img src={BASE + "moodie_smile.png"} className="w-12" />
                                         </div>
                                         <div className="flex-1">
-                                            <p className="text-xs font-bold" style={{ color: "#9B7EEB" }}>
-                                                {"\uC624\uB298\uC758 \uAE30\uBD84"}
-                                            </p>
-                                            <h3
-                                                className="text-base font-black mt-0.5"
-                                                style={{ color: "#2D1654" }}
-                                            >
-                                                {"\uC544\uC9C1 \uAE30\uB85D\uD558\uC9C0 \uC54A\uC558\uC5B4\uC694"}
-                                            </h3>
-                                            <p className="text-xs font-bold mt-1" style={{ color: "#7B49FF" }}>
-                                                {"\uC9C0\uAE08 \uAE30\uB85D\uD558\uAE30 \u2192"}
-                                            </p>
+                                            <p className="text-xs font-bold" style={{ color: "#9B7EEB" }}>오늘의 기분</p>
+                                            <h3 className="text-base font-black mt-0.5" style={{ color: "#2D1654" }}>아직 기록하지 않았어요</h3>
+                                            <p className="text-xs font-bold mt-1" style={{ color: "#7B49FF" }}>지금 기록하기 →</p>
                                         </div>
                                     </button>
                                 )}
                             </div>
 
-                            {/* ===== 이번 주 감정 캘린더 ===== */}
+                            {/* 이번 주 감정 캘린더 */}
                             <div className="px-5 mt-5">
-                                <div
-                                    className="rounded-[24px] p-5"
-                                    style={{
-                                        background: "#fff",
-                                        border: "1.5px solid #EDE6FF",
-                                        boxShadow: "0 2px 20px rgba(123,73,255,0.06)"
-                                    }}
-                                >
+                                <div className="rounded-[24px] p-5" style={{ background: "#fff", border: "1.5px solid #EDE6FF", boxShadow: "0 2px 20px rgba(123,73,255,0.06)" }}>
                                     <div className="flex items-center justify-between mb-4">
-                                        <h2
-                                            className="text-base font-black"
-                                            style={{ color: "#2D1654" }}
-                                        >
-                                            {"\uC774\uBC88 \uC8FC \uAC10\uC815"}
-                                        </h2>
-                                        <span
-                                            className="text-xs font-bold px-3 py-1 rounded-full"
-                                            style={{ background: "#F3EDFF", color: "#7B49FF" }}
-                                        >
-                                            {now.getMonth() + 1}{"\uC6D4"}
-                                        </span>
+                                        <h2 className="text-base font-black" style={{ color: "#2D1654" }}>이번 주 감정</h2>
+                                        <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background: "#F3EDFF", color: "#7B49FF" }}>{now.getMonth() + 1}월</span>
                                     </div>
-
                                     <div className="flex justify-between">
                                         {weekDates.map((date, i) => {
                                             const dateStr = date.toISOString().slice(0, 10)
@@ -306,123 +192,50 @@ function HomeScreen({
                                             const moodLabel = dateToMood[dateStr]
                                             return (
                                                 <div key={i} className="flex flex-col items-center gap-1.5">
-                                                    <p
-                                                        className="text-[10px] font-bold"
-                                                        style={{ color: isToday ? "#7B49FF" : "#B9A3F0" }}
-                                                    >
-                                                        {dayLabels[i]}
-                                                    </p>
-                                                    <div
-                                                        className="w-10 h-10 rounded-full flex items-center justify-center overflow-hidden"
-                                                        style={{
-                                                            background: isToday
-                                                                ? "linear-gradient(135deg, #7B49FF, #B381FF)"
-                                                                : moodLabel
-                                                                    ? "#F3EDFF"
-                                                                    : "#F8F6FF",
-                                                            boxShadow: isToday
-                                                                ? "0 4px 12px rgba(123,73,255,0.3)"
-                                                                : "none"
-                                                        }}
-                                                    >
+                                                    <p className="text-[10px] font-bold" style={{ color: isToday ? "#7B49FF" : "#B9A3F0" }}>{dayLabels[i]}</p>
+                                                    <div className="w-10 h-10 rounded-full flex items-center justify-center overflow-hidden"
+                                                        style={{ background: isToday ? "linear-gradient(135deg, #7B49FF, #B381FF)" : moodLabel ? "#F3EDFF" : "#F8F6FF", boxShadow: isToday ? "0 4px 12px rgba(123,73,255,0.3)" : "none" }}>
                                                         {moodLabel
                                                             ? <img src={moodImageMap[moodLabel] || BASE + "moodie_smile.png"} className="w-9 h-9 object-contain" />
-                                                            : isToday
-                                                                ? <span style={{ color: "#fff", fontSize: 12, fontWeight: 900 }}>{date.getDate()}</span>
-                                                                : ""
-                                                        }
+                                                            : isToday ? <span style={{ color: "#fff", fontSize: 12, fontWeight: 900 }}>{date.getDate()}</span> : ""}
                                                     </div>
-                                                    <p
-                                                        className="text-[10px]"
-                                                        style={{
-                                                            color: isToday ? "#7B49FF" : "#D0C4F0",
-                                                            fontWeight: isToday ? 900 : 700
-                                                        }}
-                                                    >
-                                                        {date.getDate()}
-                                                    </p>
+                                                    <p className="text-[10px]" style={{ color: isToday ? "#7B49FF" : "#D0C4F0", fontWeight: isToday ? 900 : 700 }}>{date.getDate()}</p>
                                                 </div>
                                             )
                                         })}
                                     </div>
-
                                     {Object.keys(moodCount).length > 0 && (
                                         <div className="flex gap-2 flex-wrap mt-4 pt-4" style={{ borderTop: "1px solid #F3EDFF" }}>
-                                            {Object.entries(moodCount)
-                                                .sort((a: any, b: any) => b[1] - a[1])
-                                                .slice(0, 4)
-                                                .map(([m, c]: any) => (
-                                                    <span
-                                                        key={m}
-                                                        className="text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5"
-                                                        style={{ background: "#F3EDFF", color: "#6E31E8" }}
-                                                    >
-                                                        <img src={moodImageMap[m] || BASE + "moodie_smile.png"} className="w-5 h-5 object-contain" />
-                                                        {m} {c}
-                                                    </span>
-                                                ))
-                                            }
+                                            {Object.entries(moodCount).sort((a: any, b: any) => b[1] - a[1]).slice(0, 4).map(([m, c]: any) => (
+                                                <span key={m} className="text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5" style={{ background: "#F3EDFF", color: "#6E31E8" }}>
+                                                    <img src={moodImageMap[m] || BASE + "moodie_smile.png"} className="w-5 h-5 object-contain" />
+                                                    {m} {c}
+                                                </span>
+                                            ))}
                                         </div>
                                     )}
                                 </div>
                             </div>
 
-                            {/* ===== 무디의 칭찬 리포트 ===== */}
+                            {/* 무디의 칭찬 리포트 */}
                             <div className="px-5 mt-5">
-                                <div
-                                    className="rounded-[24px] p-5"
-                                    style={{
-                                        background: "#fff",
-                                        border: "1.5px solid #EDE6FF",
-                                        boxShadow: "0 2px 20px rgba(123,73,255,0.06)"
-                                    }}
-                                >
+                                <div className="rounded-[24px] p-5" style={{ background: "#fff", border: "1.5px solid #EDE6FF", boxShadow: "0 2px 20px rgba(123,73,255,0.06)" }}>
                                     <div className="flex items-start gap-4">
-                                        <img
-                                            src={BASE + "moodie_write.png"}
-                                            className="w-16 shrink-0"
-                                            style={{ filter: "drop-shadow(0 4px 8px rgba(123,73,255,0.15))" }}
-                                        />
+                                        <img src={BASE + "moodie_write.png"} className="w-16 shrink-0" style={{ filter: "drop-shadow(0 4px 8px rgba(123,73,255,0.15))" }} />
                                         <div className="flex-1">
-                                            <h2
-                                                className="text-base font-black"
-                                                style={{ color: "#2D1654" }}
-                                            >
-                                                {"\uBB34\uB514\uC758 \uCE6D\uCC2C \uB9AC\uD3EC\uD2B8"}
-                                            </h2>
-                                            <p
-                                                className="text-sm font-bold mt-2 whitespace-pre-line"
-                                                style={{ color: "#6E31E8", lineHeight: 1.6 }}
-                                            >
-                                                {getPraiseMessage()}
-                                            </p>
-
+                                            <h2 className="text-base font-black" style={{ color: "#2D1654" }}>무디의 칭찬 리포트</h2>
+                                            <p className="text-sm font-bold mt-2 whitespace-pre-line" style={{ color: "#6E31E8", lineHeight: 1.6 }}>{getPraiseMessage()}</p>
                                             {totalLogs > 0 && (
                                                 <div className="flex gap-3 mt-4">
-                                                    <div
-                                                        className="flex-1 rounded-2xl p-3 text-center"
-                                                        style={{ background: "#F3EDFF" }}
-                                                    >
-                                                        <p
-                                                            className="text-xl font-black"
-                                                            style={{ color: "#6E31E8" }}
-                                                        >
-                                                            {totalLogs}{"\uD68C"}
-                                                        </p>
-                                                        <p className="text-[10px] font-bold mt-0.5" style={{ color: "#9B7EEB" }}>
-                                                            {"\uC774\uBC88 \uB2EC \uAE30\uB85D"}
-                                                        </p>
+                                                    <div className="flex-1 rounded-2xl p-3 text-center" style={{ background: "#F3EDFF" }}>
+                                                        <p className="text-xl font-black" style={{ color: "#6E31E8" }}>{totalLogs}회</p>
+                                                        <p className="text-[10px] font-bold mt-0.5" style={{ color: "#9B7EEB" }}>이번 달 기록</p>
                                                     </div>
-                                                    <div
-                                                        className="flex-1 rounded-2xl p-3 text-center"
-                                                        style={{ background: "#F3EDFF" }}
-                                                    >
+                                                    <div className="flex-1 rounded-2xl p-3 text-center" style={{ background: "#F3EDFF" }}>
                                                         <p className="text-xl font-black" style={{ color: "#6E31E8" }}>
-                                                            {topMood ? <img src={moodImageMap[topMood[0]] || BASE + "moodie_smile.png"} className="w-8 h-8 object-contain mx-auto" /> : "\u2014"}
+                                                            {topMood ? <img src={moodImageMap[topMood[0]] || BASE + "moodie_smile.png"} className="w-8 h-8 object-contain mx-auto" /> : "—"}
                                                         </p>
-                                                        <p className="text-[10px] font-bold mt-0.5" style={{ color: "#9B7EEB" }}>
-                                                            {topMood ? topMood[0] : "\uAC00\uC7A5 \uB9CE\uC740 \uAC10\uC815"}
-                                                        </p>
+                                                        <p className="text-[10px] font-bold mt-0.5" style={{ color: "#9B7EEB" }}>{topMood ? topMood[0] : "가장 많은 감정"}</p>
                                                     </div>
                                                 </div>
                                             )}
@@ -431,94 +244,41 @@ function HomeScreen({
                                 </div>
                             </div>
 
-                            {/* ===== 오늘의 추천 스팟 ===== */}
+                            {/* 오늘의 추천 스팟 */}
                             <div className="px-5 mt-5">
-                                <button
-                                    onClick={() => setTab("chat")}
-                                    className="w-full rounded-[24px] p-5 text-left flex items-center gap-4"
-                                    style={{
-                                        background: "linear-gradient(135deg, #7B49FF, #9B6BFF)",
-                                        boxShadow: "0 8px 30px rgba(123,73,255,0.25)"
-                                    }}
-                                >
-                                    <img
-                                        src={BASE + "moodie_search.png"}
-                                        className="w-16 shrink-0"
-                                        style={{ filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.15))" }}
-                                    />
+                                <button onClick={() => setTab("chat")} className="w-full rounded-[24px] p-5 text-left flex items-center gap-4"
+                                    style={{ background: "linear-gradient(135deg, #7B49FF, #9B6BFF)", boxShadow: "0 8px 30px rgba(123,73,255,0.25)" }}>
+                                    <img src={BASE + "moodie_search.png"} className="w-16 shrink-0" style={{ filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.15))" }} />
                                     <div className="flex-1">
-                                        <p className="text-[10px] font-bold" style={{ color: "rgba(255,255,255,0.7)" }}>
-                                            {"\uC624\uB298\uC758 \uBB34\uB4DC \uC2A4\uD31F"}
-                                        </p>
-                                        <h3 className="text-lg font-black text-white mt-0.5">
-                                            {suggestion.name}
-                                        </h3>
-                                        <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.8)" }}>
-                                            {suggestion.desc}
-                                        </p>
+                                        <p className="text-[10px] font-bold" style={{ color: "rgba(255,255,255,0.7)" }}>오늘의 무드 스팟</p>
+                                        <h3 className="text-lg font-black text-white mt-0.5">{suggestion.name}</h3>
+                                        <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.8)" }}>{suggestion.desc}</p>
                                     </div>
-                                    <span className="text-white text-xl shrink-0">{"\u203A"}</span>
+                                    <span className="text-white text-xl shrink-0">›</span>
                                 </button>
                             </div>
 
-                            {/* ===== 빠른 메뉴 ===== */}
+                            {/* 빠른 메뉴 */}
                             <div className="px-5 mt-5">
-                                <h2
-                                    className="text-base font-black mb-3"
-                                    style={{ color: "#2D1654" }}
-                                >
-                                    {"\uBB34\uB514\uC640 \uD568\uAED8\uD558\uAE30"}
-                                </h2>
+                                <h2 className="text-base font-black mb-3" style={{ color: "#2D1654" }}>무디와 함께하기</h2>
                                 <div className="grid grid-cols-3 gap-3">
-                                    <button
-                                        onClick={() => setTab("chat")}
-                                        className="rounded-[20px] p-4 flex flex-col items-center gap-2"
-                                        style={{
-                                            background: "#fff",
-                                            border: "1.5px solid #EDE6FF",
-                                            boxShadow: "0 2px 12px rgba(123,73,255,0.04)"
-                                        }}
-                                    >
-                                        <img src={BASE + "moodie_chat.png"} className="w-12 h-12 object-contain" />
-                                        <span className="text-xs font-black" style={{ color: "#2D1654" }}>
-                                            {"\uB300\uD654\uD558\uAE30"}
-                                        </span>
-                                    </button>
-                                    <button
-                                        onClick={() => setTab("map")}
-                                        className="rounded-[20px] p-4 flex flex-col items-center gap-2"
-                                        style={{
-                                            background: "#fff",
-                                            border: "1.5px solid #EDE6FF",
-                                            boxShadow: "0 2px 12px rgba(123,73,255,0.04)"
-                                        }}
-                                    >
-                                        <img src={BASE + "moodie_map.png"} className="w-12 h-12 object-contain" />
-                                        <span className="text-xs font-black" style={{ color: "#2D1654" }}>
-                                            {"\uC9C0\uB3C4 \uBCF4\uAE30"}
-                                        </span>
-                                    </button>
-                                    <button
-                                        onClick={() => setTab("diary")}
-                                        className="rounded-[20px] p-4 flex flex-col items-center gap-2"
-                                        style={{
-                                            background: "#fff",
-                                            border: "1.5px solid #EDE6FF",
-                                            boxShadow: "0 2px 12px rgba(123,73,255,0.04)"
-                                        }}
-                                    >
-                                        <img src={BASE + "moodie_write.png"} className="w-12 h-12 object-contain" />
-                                        <span className="text-xs font-black" style={{ color: "#2D1654" }}>
-                                            {"\uC77C\uAE30 \uC4F0\uAE30"}
-                                        </span>
-                                    </button>
+                                    {[
+                                        { tab: "chat", img: "moodie_chat.png", label: "대화하기" },
+                                        { tab: "map", img: "moodie_map.png", label: "지도 보기" },
+                                        { tab: "diary", img: "moodie_write.png", label: "일기 쓰기" },
+                                    ].map((item) => (
+                                        <button key={item.tab} onClick={() => setTab(item.tab)}
+                                            className="rounded-[20px] p-4 flex flex-col items-center gap-2"
+                                            style={{ background: "#fff", border: "1.5px solid #EDE6FF", boxShadow: "0 2px 12px rgba(123,73,255,0.04)" }}>
+                                            <img src={BASE + item.img} className="w-12 h-12 object-contain" />
+                                            <span className="text-xs font-black" style={{ color: "#2D1654" }}>{item.label}</span>
+                                        </button>
+                                    ))}
                                 </div>
                             </div>
 
-                            {/* ===== 월간 리포트 ===== */}
-                            <div className="mt-5">
-                                <MonthlyReport />
-                            </div>
+                            {/* 월간 리포트 */}
+                            <div className="mt-5"><MonthlyReport /></div>
 
                             <style>{`
                                 @keyframes float {
@@ -526,7 +286,6 @@ function HomeScreen({
                                     50% { transform: translateY(-8px); }
                                 }
                             `}</style>
-
                         </div>
                     )
                 )}
@@ -536,7 +295,6 @@ function HomeScreen({
                 {tab === "diary" && <DiaryTab />}
                 {tab === "settings" && <SettingsTab />}
             </div>
-
             <BottomNav tab={tab} setTab={setTab} />
         </section>
     )
