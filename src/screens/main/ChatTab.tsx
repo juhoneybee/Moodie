@@ -75,13 +75,35 @@ function ChatTab() {
         if (!userLocation) return []
         try {
             const params = new URLSearchParams({
-                emotion,
-                x: String(userLocation.x),
-                y: String(userLocation.y)
+                mood: emotion,
+                place: "",
+                lat: String(userLocation.y),
+                lng: String(userLocation.x)
             })
-            const res = await fetch(`https://moodie-api.onrender.com/recommend?${params}`)
+            const url = `https://moodie-api.onrender.com/recommend?${params}`
+            console.log("fetchPlaces -> url:", url)
+            const res = await fetch(url)
+            console.log("fetchPlaces -> status:", res.status)
             const data = await res.json()
-            return data.places || []
+            console.log("fetchPlaces -> raw response:", data)
+
+            const arr = Array.isArray(data) ? data : (data.places || [])
+
+            // map backend place shape to frontend `Place` type
+            const mapped: Place[] = arr.map((p: any, idx: number) => ({
+                id: String(p.id ?? p.place_id ?? p.name ?? idx),
+                name: p.name ?? p.place_name ?? "",
+                category: p.category ?? p.category_name ?? "",
+                address: p.address ?? p.road_address_name ?? p.address_name ?? "",
+                distance: String(p.distance ?? p.dist ?? 0),
+                phone: p.phone ?? "",
+                url: p.url ?? "",
+                x: String(p.lng ?? p.x ?? p.longitude ?? ""),
+                y: String(p.lat ?? p.y ?? p.latitude ?? "")
+            }))
+
+            console.log("fetchPlaces -> mapped places:", mapped)
+            return mapped
         } catch  {
             return []
         }
