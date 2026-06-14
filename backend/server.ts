@@ -38,7 +38,8 @@ app.get("/recommend", async (req: Request, res: Response) => {
             "설레요": "행복/설렘",
             "행복해요": "행복/설렘",
             "차분해요": "차분/안정",
-            "편안해요": "차분/안정"
+            "편안해요": "차분/안정",
+            "외로워요": "외로움"
         }
 
         // Normalize incoming mood (e.g. "피곤해요", "우울해요") to the canonical keys
