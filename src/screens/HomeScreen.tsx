@@ -19,6 +19,8 @@ interface Props {
     setHomeStep: any
     spots: any
     setSpots: any
+    selectedSpotId: string | null
+    setSelectedSpotId: any
     location: any
     setLocation: any
 }
@@ -45,7 +47,9 @@ const spotSuggestions: any = {
 
 function HomeScreen({
     name, tab, setTab, mood, setMood, place, setPlace,
-    homeStep, setHomeStep, spots, setSpots, location, setLocation
+    homeStep, setHomeStep, spots, setSpots,
+    selectedSpotId, setSelectedSpotId,
+    location, setLocation
 }: Props) {
 
     useEffect(() => {
@@ -55,7 +59,7 @@ function HomeScreen({
             },
             (error) => { console.log(error) }
         )
-    }, [])
+    }, [setLocation])
 
     const logs = JSON.parse(localStorage.getItem("moodLogs") || "[]")
     const now = new Date()
@@ -121,7 +125,7 @@ function HomeScreen({
 
     return (
         <section className="h-full bg-white relative">
-            <div className="h-full pb-32">
+            <div className="h-full pb-20 flex flex-col">
                 {tab === "home" && (
                     homeStep < 2 ? (
                         <HomeTab
@@ -132,7 +136,7 @@ function HomeScreen({
                             location={location}
                         />
                     ) : (
-                        <div className="h-full overflow-y-auto pb-32 bg-[#FAFAFE]">
+                        <div className="h-full overflow-y-auto pb-20 bg-[#FAFAFE]">
 
                             {/* 헤더 */}
                             <div className="px-6 pt-14 pb-8" style={{ background: "linear-gradient(180deg, #F3EDFF 0%, #FAFAFE 100%)" }}>
@@ -290,10 +294,20 @@ function HomeScreen({
                     )
                 )}
 
-                {tab === "map" && <MapTab spots={spots} />}
-                {tab === "chat" && <ChatTab setTab={setTab} setSpots={setSpots} />}
-                {tab === "diary" && <DiaryTab />}
-                {tab === "settings" && <SettingsTab />}
+                <div className="flex-1 min-h-0 overflow-hidden">
+                    <div className={tab === "map" ? "h-full" : "hidden h-full"}>
+                        <MapTab spots={spots} selectedSpotId={selectedSpotId} />
+                    </div>
+                    <div className={tab === "chat" ? "h-full" : "hidden h-full"}>
+                        <ChatTab setTab={setTab} setSpots={setSpots} setSelectedSpotId={setSelectedSpotId} />
+                    </div>
+                    <div className={tab === "diary" ? "h-full" : "hidden h-full"}>
+                        <DiaryTab />
+                    </div>
+                    <div className={tab === "settings" ? "h-full" : "hidden h-full"}>
+                        <SettingsTab />
+                    </div>
+                </div>
             </div>
             <BottomNav tab={tab} setTab={setTab} />
         </section>

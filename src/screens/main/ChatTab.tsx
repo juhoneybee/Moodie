@@ -37,9 +37,10 @@ const quickChips = [
 interface Props {
     setTab: (tab: string) => void
     setSpots: (places: Place[]) => void
+    setSelectedSpotId: (id: string | null) => void
 }
 
-function ChatTab({ setTab, setSpots }: Props) {
+function ChatTab({ setTab, setSpots, setSelectedSpotId }: Props) {
     const [started, setStarted] = useState(false)
     const [messages, setMessages] = useState<Message[]>([])
     const [input, setInput] = useState("")
@@ -49,8 +50,9 @@ function ChatTab({ setTab, setSpots }: Props) {
     const [userLocation, setUserLocation] = useState<{ x: number; y: number } | null>(null)
     const scrollRef = useRef<HTMLDivElement>(null)
 
-    const goToMap = (places: Place[]) => {
+    const goToMap = (places: Place[], selectedId?: string | null) => {
         setSpots(places)
+        setSelectedSpotId(selectedId ?? null)
         setTab("map")
         setShowReco(false)
     }
@@ -74,14 +76,16 @@ function ChatTab({ setTab, setSpots }: Props) {
     }, [messages])
 
     const detectMood = (text: string) => {
+        const lower = text.toLowerCase()
         const found = chatQuestions.find((item) =>
-            item.keywords.some((keyword) => text.includes(keyword))
+            item.keywords.some((keyword) => lower.includes(keyword))
         )
         if (found) return found
         return {
-            emotion: "\uBCF5\uC7A1\uD574\uC694",
-            reply: "\uC870\uAE08 \uB354 \uC774\uC57C\uAE30\uD574\uC990\uB798\uC694? \uBB34\uB514\uAC00 \uADC0 \uAE30\uC6B8\uC774\uACE0 \uC788\uC5B4\uC694.",
-            places: ["\u2601\uFE0F \uBB34\uB4DC \uC2A4\uD31F"]
+            emotion: "차분",
+            searchCategory: "차분/안정",
+            reply: "조금 더 자세히 말씀해주실 수 있을까요? 주변에서 기분에 맞는 장소를 찾아볼게요.",
+            places: ["🌿 공원 산책"]
         }
     }
 
@@ -131,6 +135,27 @@ function ChatTab({ setTab, setSpots }: Props) {
         return (m / 1000).toFixed(1) + "km"
     }
 
+    const getEmotionPhrase = (emotion: string | undefined) => {
+        if (!emotion) return "기분을 잘 맞출 수 있는"
+        if (emotion === "행복") return "행복한 기분을 더 즐길 수 있는"
+        if (emotion === "설렘") return "설렘을 이어갈 수 있는"
+        if (emotion === "차분") return "차분한 기분을 유지할 수 있는"
+        if (emotion === "안정") return "안정감을 더해줄 수 있는"
+        if (emotion === "피곤") return "피로를 풀어줄 수 있는"
+        if (emotion === "멍함") return "머리를 맑히기 좋은"
+        if (emotion === "슬픔") return "마음을 달래줄 수 있는"
+        if (emotion === "우울") return "우울함을 부드럽게 해줄 수 있는"
+        if (emotion === "화남") return "화를 누그러뜨리기 좋은"
+        if (emotion === "답답") return "답답함을 풀어줄 수 있는"
+        if (emotion === "외로움") return "혼자 있어도 편안한"
+        if (emotion === "행복/설렘") return "행복과 설렘을 더 느낄 수 있는"
+        if (emotion === "차분/안정") return "차분함과 안정감을 더해줄 수 있는"
+        if (emotion === "피곤/멍함") return "지친 기분을 달래줄 수 있는"
+        if (emotion === "슬픔/우울") return "슬픔과 우울을 달래줄 수 있는"
+        if (emotion === "화남/답답") return "화와 답답함을 풀어줄 수 있는"
+        return emotion + "을 위한"
+    }
+
     const getCategoryEmoji = (category: string) => {
         if (category.includes("\uCE74\uD398") || category.includes("\uCEE4\uD53C")) return "\u2615"
         if (category.includes("\uC74C\uC2DD") || category.includes("\uC2DD\uB2F9")) return "\uD83C\uDF7D\uFE0F"
@@ -153,25 +178,26 @@ function ChatTab({ setTab, setSpots }: Props) {
 
         const result = detectMood(text)
         const emotionKey = result.emotion
+        const searchCategory = result.searchCategory || result.emotion
 
         setMessages((prev) => [
             ...prev,
             { role: "user", text: text },
             {
                 role: "bot",
-                text: result.reply + "\n\n\uC8FC\uBCC0\uC5D0\uC11C \uAE30\uBD84\uC5D0 \uB9DE\uB294 \uACF3\uC744 \uCC3E\uACE0 \uC788\uC5B4\uC694...",
+                text: result.reply + "\n\n주변에서 기분에 맞는 장소를 찾고 있어요...",
                 loading: true
             }
         ])
 
-        const places = await fetchPlaces(emotionKey)
+        const places = await fetchPlaces(searchCategory)
 
         setMessages((prev) => {
             const updated = prev.slice(0, -1)
             if (places.length > 0) {
                 updated.push({
                     role: "bot",
-                    text: result.reply + "\n\n\uB0B4 \uC8FC\uBCC0\uC5D0\uC11C " + emotionKey + "\uC744 \uB2AC\uB798\uC904 \uACF3 " + places.length + "\uAD70\uB370\uB97C \uCC3E\uC558\uC5B4!",
+                    text: result.reply + "\n\n내 주변에서 " + getEmotionPhrase(emotionKey) + " 장소 " + places.length + "곳을 찾았어요.",
                     emotion: emotionKey,
                     places: places
                 })
@@ -325,7 +351,7 @@ function ChatTab({ setTab, setSpots }: Props) {
 
     /* ===== 대화 모드 ===== */
     return (
-        <section className="h-full flex flex-col bg-[#FAFAFE] relative">
+        <section className="h-full flex flex-col bg-[#FAFAFE] relative -mb-8">
 
             {/* 헤더 */}
             <div
@@ -355,7 +381,7 @@ function ChatTab({ setTab, setSpots }: Props) {
             {/* 채팅 영역 */}
             <div
                 ref={scrollRef}
-                className="flex-1 overflow-y-auto px-5 pb-20"
+                className="flex-1 min-h-0 overflow-y-auto px-5 pb-20"
             >
                 <div className="space-y-3 mt-2">
                     {messages.map((msg, i) => (
@@ -404,7 +430,7 @@ function ChatTab({ setTab, setSpots }: Props) {
                                             {msg.places.map((place) => (
                                                 <button
                                                     key={place.id}
-                                                    onClick={() => goToMap(msg.places || [])}
+                                                    onClick={() => goToMap(msg.places || [], place.id)}
                                                     className="w-full rounded-2xl px-4 py-3 text-left flex items-center gap-3 active:scale-[0.98] transition"
                                                     style={{ background: "#F3EDFF" }}
                                                 >
@@ -447,7 +473,7 @@ function ChatTab({ setTab, setSpots }: Props) {
             </div>
 
             {/* 입력창 */}
-            <div className="absolute bottom-28 left-4 right-4">
+            <div className="sticky bottom-0 left-0 right-0 px-4 pb-3 pt-2 bg-[#FAFAFE] z-10">
                 <div
                     className="flex items-center rounded-full overflow-hidden"
                     style={{
@@ -511,7 +537,7 @@ function ChatTab({ setTab, setSpots }: Props) {
                             {recoPlaces.map((place) => (
                                 <button
                                     key={place.id}
-                                    onClick={() => goToMap(recoPlaces)}
+                                    onClick={() => goToMap(recoPlaces, place.id)}
                                     className="w-full rounded-[24px] p-5 text-left active:scale-[0.98] transition"
                                     style={{
                                         background: "rgba(255,255,255,0.1)",

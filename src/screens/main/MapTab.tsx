@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react"
 
 interface Props {
   spots: any[]
+  selectedSpotId: string | null
 }
 
 declare global {
@@ -10,17 +11,19 @@ declare global {
   }
 }
 
-function MapTab({ spots }: Props) {
+function MapTab({ spots, selectedSpotId }: Props) {
   const mapRef = useRef<HTMLDivElement>(null)
   const mapInstance = useRef<any>(null)
 
   useEffect(() => {
     if (!window.kakao || !mapRef.current) return
 
-    const center = spots[0]
+    const selectedSpot = selectedSpotId ? spots.find((spot: any) => spot.id === selectedSpotId) : undefined
+    const startSpot = selectedSpot || spots[0]
+    const center = startSpot
       ? new window.kakao.maps.LatLng(
-          spots[0].lat,
-          spots[0].lng
+          startSpot.lat,
+          startSpot.lng
         )
       : new window.kakao.maps.LatLng(
           37.5665,
@@ -69,7 +72,7 @@ function MapTab({ spots }: Props) {
         }
       )
     })
-  }, [spots])
+}, [spots, selectedSpotId])
 
   const moveToSpot = (spot: any) => {
     if (!mapInstance.current) return

@@ -16,6 +16,7 @@ function App() {
     const [location, setLocation] = useState({lat:0, lng:0})
     const [selected, setSelected] = useState<string[]>([])
     const [spots, setSpots] = useState<any[]>([])
+    const [selectedSpotId, setSelectedSpotId] = useState<string | null>(null)
 
     const toggleOption = (option: string) => {
         if (selected.includes(option)) {
@@ -140,7 +141,7 @@ function App() {
                                         setScreen("permission")
                                     }
                                 }}
-                                className="h-[68px] w-full rounded-full bg-gradient-to-r from-[#7B49FF] to-[#B381FF] font-bold text-white text-xl font-bold shadow-xl"
+                                className="h-[68px] w-full rounded-full bg-gradient-to-r from-[#7B49FF] to-[#B381FF] font-bold text-white text-xl shadow-xl"
                             >
                                 다음
                             </button>
@@ -171,6 +172,8 @@ function App() {
                             setHomeStep={setHomeStep}
                             spots={spots}
                             setSpots={setSpots}
+                            selectedSpotId={selectedSpotId}
+                            setSelectedSpotId={setSelectedSpotId}
                             location={location}
                             setLocation={setLocation}
                         />

@@ -21,22 +21,13 @@ function DiaryTab() {
   const [diaries, setDiaries] =
     useState<Diary[]>([])
 
-    useEffect(()=>{
-
-const saved=
-localStorage.getItem(
-"diaries"
-)
-
-if(saved){
-
-setDiaries(
-JSON.parse(saved)
-)
-
-}
-
-},[])
+  useEffect(()=>{
+    const saved = localStorage.getItem("diaries")
+    if(saved){
+      const parsed = JSON.parse(saved)
+      queueMicrotask(() => setDiaries(parsed))
+    }
+  },[])
 
   const [date, setDate] =
     useState(
@@ -347,7 +338,7 @@ updated
         }
         className="
           absolute
-          bottom-[-10px]
+          bottom-[24px]
           right-6
 
           w-16
