@@ -9,6 +9,7 @@ interface Props {
   homeStep: number
   setHomeStep: any
   setSpots: any
+  setTab: any
   location: any
 }
 
@@ -21,6 +22,7 @@ function HomeTab({
   homeStep,
   setHomeStep,
   setSpots,
+  setTab,
   location
 }: Props) {
   console.log("현재 위치", location)
@@ -157,11 +159,14 @@ function HomeTab({
               )
                 .then(r => r.json())
                 .then(data => {
-                  setSpots(data)
+                  const arr = Array.isArray(data) ? data : (data.places || [])
+                  setSpots(arr)
                   setHomeStep(2)
+                  setTab("map")
                 })
                 .catch(() => {
                   setHomeStep(2)
+                  setTab("map")
                 })
             }}
             className={`w-full h-14 rounded-full text-lg font-black transition ${

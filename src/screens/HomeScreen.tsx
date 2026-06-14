@@ -132,7 +132,7 @@ function HomeScreen({
                             name={name} mood={mood} setMood={setMood}
                             place={place} setPlace={setPlace}
                             homeStep={homeStep} setHomeStep={setHomeStep}
-                            setSpots={setSpots}
+                            setSpots={setSpots} setTab={setTab}
                             location={location}
                         />
                     ) : (
@@ -271,7 +271,10 @@ function HomeScreen({
                                         { tab: "map", img: "moodie_map.png", label: "지도 보기" },
                                         { tab: "diary", img: "moodie_write.png", label: "일기 쓰기" },
                                     ].map((item) => (
-                                        <button key={item.tab} onClick={() => setTab(item.tab)}
+                                        <button key={item.tab} onClick={() => { 
+                                            setTab(item.tab)
+                                            if (item.tab === "map") setSelectedSpotId(null)
+                                        }}
                                             className="rounded-[20px] p-4 flex flex-col items-center gap-2"
                                             style={{ background: "#fff", border: "1.5px solid #EDE6FF", boxShadow: "0 2px 12px rgba(123,73,255,0.04)" }}>
                                             <img src={BASE + item.img} className="w-12 h-12 object-contain" />
