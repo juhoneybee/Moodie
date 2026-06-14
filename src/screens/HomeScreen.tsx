@@ -291,7 +291,7 @@ function HomeScreen({
                 )}
 
                 {tab === "map" && <MapTab spots={spots} />}
-                {tab === "chat" && <ChatTab />}
+                {tab === "chat" && <ChatTab setTab={setTab} setSpots={setSpots} />}
                 {tab === "diary" && <DiaryTab />}
                 {tab === "settings" && <SettingsTab />}
             </div>

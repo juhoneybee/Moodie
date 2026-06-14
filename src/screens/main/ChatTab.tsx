@@ -13,6 +13,9 @@ type Place = {
     url: string
     x: string
     y: string
+    lat?: string
+    lng?: string
+    score?: number | string
 }
 
 type Message = {
@@ -31,7 +34,12 @@ const quickChips = [
     { text: "\uC124\uB808\uB294 \uD558\uB8E8\uC57C!", color: "#FDE6F0", textColor: "#D64B8A" },
 ]
 
-function ChatTab() {
+interface Props {
+    setTab: (tab: string) => void
+    setSpots: (places: Place[]) => void
+}
+
+function ChatTab({ setTab, setSpots }: Props) {
     const [started, setStarted] = useState(false)
     const [messages, setMessages] = useState<Message[]>([])
     const [input, setInput] = useState("")
@@ -41,17 +49,23 @@ function ChatTab() {
     const [userLocation, setUserLocation] = useState<{ x: number; y: number } | null>(null)
     const scrollRef = useRef<HTMLDivElement>(null)
 
-    useEffect(() => {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-            (pos) => setUserLocation({ x: pos.coords.longitude, y: pos.coords.latitude }),
-            () => setUserLocation({ x: 126.9780, y: 37.5665 })
-        )
-    } else {
-        // 동기 setState 제거 → setTimeout으로 감싸기
-        setTimeout(() => setUserLocation({ x: 126.9780, y: 37.5665 }), 0)
+    const goToMap = (places: Place[]) => {
+        setSpots(places)
+        setTab("map")
+        setShowReco(false)
     }
-}, [])
+
+    useEffect(() => {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (pos) => setUserLocation({ x: pos.coords.longitude, y: pos.coords.latitude }),
+                () => setUserLocation({ x: 126.9780, y: 37.5665 })
+            )
+        } else {
+            // 동기 setState 제거 → setTimeout으로 감싸기
+            setTimeout(() => setUserLocation({ x: 126.9780, y: 37.5665 }), 0)
+        }
+    }, [])
 
     useEffect(() => {
         if (scrollRef.current) {
@@ -99,7 +113,9 @@ function ChatTab() {
                 phone: p.phone ?? "",
                 url: p.url ?? "",
                 x: String(p.lng ?? p.x ?? p.longitude ?? ""),
-                y: String(p.lat ?? p.y ?? p.latitude ?? "")
+                y: String(p.lat ?? p.y ?? p.latitude ?? ""),
+                lat: String(p.lat ?? p.y ?? p.latitude ?? p.lat ?? p.y ?? ""),
+                lng: String(p.lng ?? p.x ?? p.longitude ?? p.lng ?? p.x ?? "")
             }))
 
             console.log("fetchPlaces -> mapped places:", mapped)
@@ -388,7 +404,7 @@ function ChatTab() {
                                             {msg.places.map((place) => (
                                                 <button
                                                     key={place.id}
-                                                    onClick={() => window.open(place.url, "_blank")}
+                                                    onClick={() => goToMap(msg.places || [])}
                                                     className="w-full rounded-2xl px-4 py-3 text-left flex items-center gap-3 active:scale-[0.98] transition"
                                                     style={{ background: "#F3EDFF" }}
                                                 >
@@ -495,7 +511,7 @@ function ChatTab() {
                             {recoPlaces.map((place) => (
                                 <button
                                     key={place.id}
-                                    onClick={() => window.open(place.url, "_blank")}
+                                    onClick={() => goToMap(recoPlaces)}
                                     className="w-full rounded-[24px] p-5 text-left active:scale-[0.98] transition"
                                     style={{
                                         background: "rgba(255,255,255,0.1)",
