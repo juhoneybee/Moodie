@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react"
-import { chatQuestions } from "../../data/chatQuestions"
+import { chatQuestions } from "../src/data/chatQuestions"
 
 type Place = {
     id: string
